@@ -3,6 +3,7 @@
 - Ernährung von Kindern laut Studien ziemlich schlecht
 - führt zu Übergewicht
 - Lebensqualität eingeschränkt
+- kaum gesundheitliche Aufklärung in Schulen
   
 ## Zielsetzung / Vision
 - Ernährungsaufklärung/Bildung für Kinder
