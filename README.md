@@ -11,3 +11,5 @@
 - für zu gesamtgesellschaftlichen Kosten
 - trägt zur öko-sozialen Transformation bei
 - hat wissenschaftliche Relevanz
+
+## Quellen
