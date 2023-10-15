@@ -4,7 +4,7 @@
 Die Anzahl an übergewichtigen Kindern in Deutschland nimmt zu [Übergewicht Kurth und Rosario 2010], [KiGGS2].
 Zudem sind viele Kinder einseitig ernährt, wobei es Unterschiede zwischen Altersgruppen und Geschlecht gibt [KiGGS], [KiGGS2], [Wie isst Deutschland_Hilbig_2008].
 Die Bildung für Kinder und Jugendliche in Kitas und Schulen ist vorhanden, aber mangelhaft und ausbaufähig [BMEL].
-Auch bei Erwachsenen gibt es viele Gründe, warum ihr Ernährungsverhalten mangelhaft ist, zum Beispiel der soziale Status. [Sozialer Status_Muff_Weyers_2010], [Wie isst Deutschland_Hilbig_2008] Daraus lässt sich schließen, dass es Faktoren gibt, die es Eltern erschweren, ihren Kindern eine gute Ernährung vorzuleben.
+Auch bei Erwachsenen gibt es viele Gründe, warum ihr Ernährungsverhalten mangelhaft ist, zum Beispiel der soziale Status [Sozialer Status_Muff_Weyers_2010], [Wie isst Deutschland_Hilbig_2008]. Daraus lässt sich schließen, dass es Faktoren gibt, die es Eltern erschweren, ihren Kindern eine gute Ernährung vorzuleben.
 Dies ist im Zusammenhang mit der ausbaufähigen Ernährungsbildung in Kitas und Schulen ein Risikofaktor für Kinder in Bezug auf ihre Ernährung, denn Ernährungsbildung begleitet Kinder ihr Leben lang. Durch gute Ernährungsbildung wird ihre Lebensqualität und Gesundheit langfristig gesteigert. 
 
 ## Zielsetzung / Vision
@@ -24,19 +24,20 @@ Wissenschaftliche Relevanz:
 
 
 ## Quellen
-BMEL
+- **BMEL**
 Neue Studie zur Ernährungsbildung in Schulen und Kitas in Deutschland,
 Bundesministerium für Ernährung und Landwirtschaft,
 24.11.2020
 https://www.bmel.de/DE/themen/ernaehrung/gesunde-ernaehrung/kita-und-schule/studie-ernaehrungsbildung.html
 
-Übergewicht Kurth und Rosario 2010
+
+- **Übergewicht Kurth und Rosario 2010**
 Übergewicht und Adipositas bei Kindern und Jugendlichen in Deutschland,
 M.-M Kurth, A Schaffrath Rosario,
 Springer-Verlag, 2010
 https://edoc.rki.de/bitstream/handle/176904/884/27A1KTMTtAiWs.pdf?sequence=1&isAllowed=y
 
-KiGGS
+- **KiGGS**
 Lebensmittelverzehr bei Kindern und Jugendlichen in Deutschland,
 Ergebnisse des Kinder- und Jugendgesundheitssurveys (KiGGS)
 G. B. M. Mensink, C. Kleiser, A. Richter,
@@ -44,20 +45,20 @@ Springer Medizin Verlag, 2007
 https://edoc.rki.de/bitstream/handle/176904/412/287ThlM3FQ5SU.pdf?sequence=1
 
 
-KiGGS2
+- **KiGGS2**
 Sport- und Ernährungsverhalten bei Kindern und Jugendlichen in Deutschland – Querschnittergebnisse aus KiGGS Welle 2 und Trends,
 Susanne Krug, Jonas D. Finger, Cornelia Lange, Almut Richter, Gert B. M. Mensink,
 Journal Of Health Monitoring, 2018
 https://edoc.rki.de/bitstream/handle/176904/5687/JoHM_02_2018_Sport_Ernaehrungsverhalten_KiGGS-Welle2.pdf?sequence=1&isAllowed=y
 
-Wie isst Deutschland_Hilbig_2008
+- **Wie isst Deutschland_Hilbig_2008**
 Wie isst Deutschland?,
 Auswertungen der Nationalen Verzehrsstudie II zum Lebensmittelverzehr,
 Dr. oec. troph. Annett Hilbig,
 2008
 https://www.ernaehrungs-umschau.de/fileadmin/Ernaehrungs-Umschau/pdfs/pfd_2009/01_09/EU01_16_23.qxd.pdf
 
-Sozialer Status_Muff_Weyers_2010
+- **Sozialer Status_Muff_Weyers_2010**
 Sozialer Status und Ernährungsqualität,
 Evidenz, Ursachen und Interventionen,
 Dr. phil. Christine Muff, Dr. phil. Simone Weyers,
