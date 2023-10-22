@@ -69,3 +69,7 @@ https://www.ernaehrungs-umschau.de/fileadmin/Ernaehrungs-Umschau/pdfs/pdf_2010/0
 
 <img width="805" alt="Domänenmodell" src="https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/117512238/91b04682-456a-4e79-a7ea-20bb00b359da">
 
+## Stakeholderanalyse
+
+
+![EP - Frame 1](https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/117512238/80e69ac3-56ce-4d5e-8d30-b4a5c8bfe41d)
