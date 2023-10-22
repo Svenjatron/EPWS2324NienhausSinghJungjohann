@@ -66,3 +66,6 @@ Ernährungs Umschau 57 (2010) S. 84–89
 https://www.ernaehrungs-umschau.de/fileadmin/Ernaehrungs-Umschau/pdfs/pdf_2010/02_10/EU02_2010_084_089.qxd.pdf
 
 ## Domänenmodell
+
+<img width="805" alt="Domänenmodell" src="https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/117512238/91b04682-456a-4e79-a7ea-20bb00b359da">
+
