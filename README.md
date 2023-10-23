@@ -8,8 +8,7 @@ Auch bei Erwachsenen gibt es viele Gründe, warum ihr Ernährungsverhalten mange
 Dies ist im Zusammenhang mit der ausbaufähigen Ernährungsbildung in Kitas und Schulen ein Risikofaktor für Kinder in Bezug auf ihre Ernährung, denn Ernährungsbildung begleitet Kinder ihr Leben lang. Durch gute Ernährungsbildung wird ihre Lebensqualität und Gesundheit langfristig gesteigert. 
 
 ## Zielsetzung / Vision
-Wir wollen ein System entwickeln, mit dem Kinder Entwicklungsbildung spielerisch beigebracht wird. 
-Im Idealfall kann dieses System auch unterstützend von Eltern und Einrichtungen bei ihrem Versuch zur Ernährungsbildung von Kindern genutzt werden. 
+Wir wollen ein System entwickeln, mit dem Kinder Ernährungsbildung spielerisch im Rahmen Schule beigebracht wird. 
 
 ## gesellschaftliche, wissenschaftliche und/oder wirtschaftliche Relevanz
 
