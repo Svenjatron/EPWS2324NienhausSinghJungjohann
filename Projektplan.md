@@ -9,7 +9,7 @@
 |||jeder|Stichpunkte Exposè|
 |So 15.10 - 1h|So 15.10 - 1h|Caro|Ausformulierung Exposè|
 |||Sven|Domänenmodell|
-
+---
 ## Woche vom 16. - 22. Oktober
 ### Domänenmodell
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
@@ -33,7 +33,7 @@
 |23.10  - 2h||Caroline| Recherche auf Schulkinder ausweiten|
 ||||Ausformulierung beenden|
 
-### Mittwoch 25.10 Gruppentreffen
+### *Gruppentreffen - Mittwoch 25.10 14:00 Uhr*
 
 
 Muster:
