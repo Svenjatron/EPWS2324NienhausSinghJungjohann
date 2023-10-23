@@ -20,9 +20,12 @@
 |---|---|---|---|
 ||||
 ### Marktanalyse
-|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
-|---|---|---|---|
-||||
+|Geplant |Durchgeführt|Teilnehmer|Aufgabe| Notiz |
+|---|---|---|---|---|
+|20.10 - 2h|20.10 - 2h| Caroline | Marktanalyse| noch nicht fertig ausformuliert |
+||||Recherche|
+||||Beurteilung/Ausformulierung|
+|23.10  >1h||Caroline| Ausformulierung |
 
 
 Muster:
