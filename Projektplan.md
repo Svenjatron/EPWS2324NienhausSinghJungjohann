@@ -5,7 +5,7 @@
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |Do 12.10 - 1h| Sa 14.10 - 1h|Sven, Caro | Exposè |
-|||jeder (auch Perit schon vorher)|Recherche Quellen|
+|||jeder (auch Prerit schon vorher)|Recherche Quellen|
 |||jeder|Stichpunkte Exposè|
 |So 15.10 - 1h|So 15.10 - 1h|Caro|Ausformulierung Exposè|
 |||Sven|Domänenmodell|
@@ -13,11 +13,11 @@
 ## Woche vom 16. - 22. Oktober
 ### Domänenmodell
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
-|---|---|---|---|
+|So 22.10 - 1h|Prerit, Sven|---|---|
 ||||
 ### Stakeholderanalyse
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
-|---|---|---|---|
+|So 22.10 - 1h|Prerit, Sven|---|---|
 ||||
 ### Marktanalyse
 |Geplant |Durchgeführt|Teilnehmer|Aufgabe| Notiz |
