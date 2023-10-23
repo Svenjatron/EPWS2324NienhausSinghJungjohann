@@ -25,7 +25,15 @@
 |20.10 - 2h|20.10 - 2h| Caroline | Marktanalyse| noch nicht fertig ausformuliert |
 ||||Recherche|
 ||||Beurteilung/Ausformulierung|
-|23.10  >1h||Caroline| Ausformulierung |
+-----
+## Woche vom 23. - 29. Oktober
+### Marktanalyse
+|Geplant |Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|23.10  - 2h||Caroline| Recherche auf Schulkinder ausweiten|
+||||Ausformulierung beenden|
+
+### Mittwoch 25.10 Gruppentreffen
 
 
 Muster:
