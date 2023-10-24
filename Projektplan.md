@@ -13,10 +13,12 @@
 ## Woche vom 16. - 22. Oktober
 ### Domänenmodell
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
-|So 22.10 - 1h|Prerit, Sven|---|---|
+|---|---|---|---|
+|So 22.10 - 1h|Prerit, Sven|||
 ||||
 ### Stakeholderanalyse
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
 |So 22.10 - 1h|Prerit, Sven|---|---|
 ||||
 ### Marktanalyse
@@ -30,7 +32,7 @@
 ### Marktanalyse
 |Geplant |Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|23.10  - 2h||Caroline| Recherche auf Schulkinder ausweiten|
+|23.10  - 2h|24.10 - 1h|Caroline| Recherche auf Schulkinder ausweiten|
 ||||Ausformulierung beenden|
 
 ### *Gruppentreffen - Mittwoch 25.10 14:00 Uhr*
