@@ -37,6 +37,55 @@
 
 ### *Gruppentreffen - Mittwoch 25.10 14:00 Uhr*
 
+### Erfordernisse
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|von 25.10 - nächstes Treffen am WE|| jeder | Erfordernisse formulieren für jeweilige Stakeholder|
+|||Perit| Eltern und Rest|
+|||Sven| Schüler:innen|
+|||Caro|Lehrer:innenn|
+
+### Datenanalyse
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|von 25.10 - nächstes Treffen am WE||jeder|Quellen/Daten durcharbeiten für Gesprächsgrundlage im Team |
+|||Perit| |
+|||Sven| |
+|||Caro||
+
+
+
+#### Ablauf Brainstorming Notizen:
+- Erfordernisse
+    Schüler:innen   -> 
+    Lehrer:innen    -> 
+    Eltern + rest   -> 
+- Datenanalyse (siehe Quellen Exposè) -> jeder bis zum nächsten treffen
+  
+- Anforderungen - Am nächsten Treffen Aufteilen
+- erste techn. Spezifikationen, Proof of Concept
+
+- Alleinstellungsmerkmale
+- Projektrisiken
+  -  theoretische evaluationen?
+  -  siehe Gamification Prinzipien
+  
+- erster PoC?
+
+- Altersgruppe auswählen! (Grundschule, Sek 1, Oberstufe)
+  - siehe Datenanalyse
+
+
+##### Brainstorming Social Computing Prinzipien:
+- Gamification Prinzipien:
+  - Datenanalyse (siehe Quellen Exposè)
+    - Analysieren und für Anforderungen benutzen
+  - Gamification
+    - quasi alles :^) 
+  - Soziotechnische Systeme
+    - Behaviour Change
+    - 
+
 
 Muster:
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
