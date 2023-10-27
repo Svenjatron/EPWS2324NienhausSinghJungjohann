@@ -41,7 +41,7 @@
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |von 25.10 - nächstes Treffen am WE|| jeder | Erfordernisse formulieren für jeweilige Stakeholder|
-|||Perit| Eltern und Rest|
+|26.10 - 1h|26.10 - 1h|Perit| Eltern und Rest|
 |||Sven| Schüler:innen|
 |25.10 - 1h| 25.10 - 1h |Caro|Lehrer:innenn|
 
