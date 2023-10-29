@@ -2,7 +2,11 @@
 
 ## Stakeholder Übersicht
 
-<img width="1092" alt="Bildschirmfoto 2023-10-25 um 11 18 26" src="https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/95627941/8a412c12-5593-4bfd-8618-15f4a72460f4">
+<img width="1080" alt="Bildschirmfoto 2023-10-29 um 20 40 36" src="https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/95627941/90864b54-536a-4d8f-bf7e-ee6ada8ee2c8">
+<img width="1080" alt="Bildschirmfoto 2023-10-29 um 20 41 02" src="https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/95627941/e2cf257c-20fd-4029-95ea-b78b96e4c851">
+<img width="1080" alt="Bildschirmfoto 2023-10-29 um 20 41 28" src="https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/95627941/bcd14cf3-9d87-4a61-9e96-81f211ce7ccb">
+<img width="1080" alt="Bildschirmfoto 2023-10-29 um 20 42 03" src="https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/95627941/25e3a7ea-0576-4e92-8c85-227feba6c1af">
+
 
 ## Zusammenfassung
 
