@@ -1,5 +1,4 @@
 # Marktanalyse
-<br><br>
 Es gibt viele unterschiedliche Angebote, hauptsächlich an Erwachsene gerichtet.
 Die Suche nach speziell für Kinder entwickelte Apps ist Schwer. Die Liste des Bundesgesundheitsministeriums enthält hilfreiche und Apps zum Thema auf, doch die wenigen Apps, direkt an Kinder gerichtet, sind im Google Play Store oder beim Recherchieren per Suchmaschine nicht zu finden [Liste_BGM]. Allgemein ist die Recherche nach kindgerechten, wissens-vermittelnden Apps für Kinder schwer, und die meisten sind eher an Kindergartenkinder gerichtet.
 <br><br>
