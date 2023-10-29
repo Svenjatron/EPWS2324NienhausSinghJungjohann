@@ -42,13 +42,21 @@
 |---|---|---|---|
 |von 25.10 - nächstes Treffen am WE|| jeder | Erfordernisse formulieren für jeweilige Stakeholder|
 |25.10 - 1h|26.10 - 1h|Perit| Eltern und Rest|
-|||Sven| Schüler:innen|
+|25.10 - 1h|26.10 - 1h|Sven| Schüler:innen|
 |25.10 - 1h| 25.10 - 1h |Caro|Lehrer:innenn|
 
 ### Datenanalyse
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |von 25.10 - nächstes Treffen am WE||jeder|Quellen/Daten durcharbeiten für Gesprächsgrundlage im Team |
+|||Perit| |
+|||Sven| |
+|||Caro||
+
+### Anforderungen
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|von 26.10 - nächstes Treffen am Mo. 30.10.||jeder|Anforderungen formulieren für jeweilige Stakeholder |
 |||Perit| |
 |||Sven| |
 |||Caro||
