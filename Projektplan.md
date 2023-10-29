@@ -19,7 +19,7 @@
 ### Stakeholderanalyse
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|So 22.10 - 1h|Prerit, Sven|---|---|
+|So 22.10 - 2h|Prerit, Sven|---|---|
 ||||
 ### Marktanalyse
 |Geplant |Durchgeführt|Teilnehmer|Aufgabe| Notiz |
