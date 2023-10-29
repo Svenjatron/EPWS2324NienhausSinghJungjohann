@@ -13,67 +13,53 @@ Eine App richtet sich nur bedingt an Schüler, nämlich die Barcoo – App [Barc
 Digitale Lernplattformen wie zum Beispiel Scoyo, richten sich an Schulkinder jeglicher Altersstufe, jedoch sind im Bildungsprogramm von Scoyo keine Kurse über Ernährung zu finden, sondern nur „klassischer Unterrichtsstoff“ [Scoyo].<br>
 Ein analoges Medium, welches sich an Schüler richtet, ist der Ernährungskompass [Ernährungskompass]. Dies ist ein Heft, welches spielerisch die Welt der Ernährung an Grund- und Förderschüler heranträgt und von Lehrern verwendet werden soll. Auf der Website des Ernährungskompass findet man unter dem Reiter „Digitales Klassenzimmer“ einige Videos zum Selbermachen oder ein Hörbuch. Auch Online Lernspiele findet man hier, welche sehr simpel gehalten sind und sich an Grundschüler richten [Ernährungskompass_Digital].
 <br><br>
-
 Zusammenfassend kann man sagen, dass durchaus viele Medien und Apps über Ernährung allgemein frei verfügbar sind. Darunter fallen hauptsächlich Informations-Flyer oder Apps, welche an Erwachsene gerichtet sind. <br>
 Auch für Ernährungsbildung sind Apps und andere Medien vorhanden, vor allem sind sie an Erwachsene gerichtet, auch für Kindergartenpersonal oder Kleinkinder. Doch für Schüler ist im Vergleich weniger Material zu finden. Vor allem ist bei der Recherchen fast kein technisches System zu finden, welches explizit an Schulkinder gerichtet ist. Das Online-Klassenzimmer des Ernährungskompass ist eher ergänzend anzusehen, da es hauptsächlich um das Heft geht. 
-<br><br>
-
-
-
-
-
-
-
-
-
 
 ## Quellen:
-<br><br>
-###Liste_BGM<br>
+
+### Liste_BGM<br>
 https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/5_Publikationen/Praevention/Berichte/4_4_3_Gesundheits-Apps.pdf
 
-###Klein_Monster_App
+### Klein_Monster_App
 https://m.apkpure.com/de/little-yum-yum-baby-food-game/by.alfasoft.CleverKidYumYum
 
-###BLE_Ernährungsbildung
+### BLE_Ernährungsbildung
 https://www.ble.de/SharedDocs/Pressemitteilungen/DE/2021/210505_Ernaehrungsbildung.html
 
-###BLE_Medienservice
+### BLE_Medienservice
 https://www.ble-medienservice.de
 
-###Scoyo
+### Scoyo
 https://www.scoyo.de/faecher/biologie/
 
-###Ernährungskompass
+### Ernährungskompass
 https://www.der-ernaehrungskompass.de/?gclid=CjwKCAjwysipBhBXEiwApJOcu7vsFRjjHAUmGeDG6hC1xrWDd68Mkx10ZsahQgAgonM8xLxBIagscRoCahsQAvD_BwE
 
-###Ernährungskompass_Digital
+### Ernährungskompass_Digital
 https://www.baywastiftung.de/digitalesklassenzimmer
 
-###Kibalou_Techniker
+### Kibalou_Techniker
 https://kibalou.app
 
-###Kibalou_Rheinl_Bildung
+### Kibalou_Rheinl_Bildung
 https://kita.rlp.de/de/aktuelles/aktuelle-nachrichten/news/News/detail/wie-geht-gesundheit-neue-kinder-app-kibalou-vermittelt-wissen-zu-ernaehrung-gesundheit-und-hygien/
 
-###Mein_Essen_Kinderleicht
+### Mein_Essen_Kinderleicht
 https://kinderleicht.berlin/das-ist-mein-essen/
 
-
-
-
-###Mein_Essen_zmb
+### Mein_Essen_zmb
 https://medien-und-bildung.lvr.de/de/unser_angebot/medienzentrum_duesseldorf/medita_duesseldorf/apps_fuer_den_einsatz_in_der_kita/mein_essen___fuer_kinder/mein_essen___fuer_kinder.html
 
-###KiCo_Smartcity
+### KiCo_Smartcity
 https://unsere-smartcity-essen.de/projekte/kico-app-gesund-mit-spass/
 
-###KiCo_Contilia
+### KiCo_Contilia
 https://www.contilia.de/nachrichten-uebersicht/nachrichten-detailseite/ein-jahr-kico-app.html#EINBLICKE
 
-###Barcoo
+### Barcoo
 https://apps.apple.com/de/app/barcoo-qr-barcode-scanner/id339525465
 Scanner, ipad, umsonst
 
-###Barcoo_techblog_schule
+### Barcoo_techblog_schule
 https://techblog-schule.de/unterricht/ernaehrungslehre-mit-app-4
