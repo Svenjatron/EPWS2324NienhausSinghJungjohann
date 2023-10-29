@@ -17,7 +17,7 @@ Auch für Ernährungsbildung sind Apps und andere Medien vorhanden, vor allem si
 
 ## Quellen:
 
-### Liste_BGM<br>
+### Liste_BGM
 https://www.bundesgesundheitsministerium.de/fileadmin/Dateien/5_Publikationen/Praevention/Berichte/4_4_3_Gesundheits-Apps.pdf
 
 ### Klein_Monster_App
