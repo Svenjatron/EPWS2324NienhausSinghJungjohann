@@ -51,7 +51,7 @@
 |von 25.10 - nächstes Treffen am WE||jeder|Quellen/Daten durcharbeiten für Gesprächsgrundlage im Team |
 |||Perit| |
 |||Sven| |
-|||Caro||
+||25.10 - 1h|Caro||
 
 ### Anforderungen
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
@@ -59,7 +59,7 @@
 |von 26.10 - nächstes Treffen am Mo. 30.10.||jeder|Anforderungen formulieren für jeweilige Stakeholder |
 |||Perit| |
 |||Sven| |
-|||Caro||
+||29.10 - 2h|Caro||
 
 
 
