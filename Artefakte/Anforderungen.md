@@ -19,6 +19,26 @@
 - Das System muss im Unterricht einsetzbar sein.
 - Wenn das System im Unterricht verwendet wird, muss das System möglichst nahtlos in diesen übergehen.
 - Wenn Daten über Antworten der Schüler gespeichert werden, muss das System dem Lehrer die Möglichkeit bieten, diese einzusehen
+- Benutzerfreundlichkeit muss das System für Eltern einfach und intuitiv gestaltbar machen.
+- Barrierefreiheit sollte das System allen Eltern unabhängig von technischem Verständnis zugänglich machen.
+- Datenschutz muss die Sicherheit der persönlichen Daten im System gewährleisten.
+- Verfügbarkeit wird das System auch außerhalb der Schulzeiten zugänglich machen.
+- Skalierbarkeit muss die Anpassung des Systems an eine wachsende Schülerzahl ermöglichen.
+- Integration sollte das System mit anderen Bildungs- und Verwaltungssystemen verknüpfbar machen.
+- Zuverlässigkeit muss eine kontinuierliche und fehlerfreie Nutzung des Systems gewährleisten.
+- Aktualisierbarkeit wird das einfache Update von Inhalten und Funktionen im System ermöglichen.
+- Standardkonformität muss das System an nationale und internationale Bildungsstandards anpassen.
+- Skalierbarkeit sollte das System für den Einsatz in verschiedenen Regionen und Schulgrößen geeignet machen.
+- Sicherheit muss den Schutz von schulübergreifenden Daten gewährleisten.
+- Berichterstattung wird das System umfassende Auswertungsfunktionen zur Überwachung der Ernährungsbildung bieten.
+- Zugänglichkeit muss das System für alle Bevölkerungsschichten nutzbar machen.
+- Informationsfreiheit sollte das System transparent und offen für öffentliche Einsichtnahmen gestalten.
+- Aktualität muss das System mit den neuesten Informationen über Ernährungsbildung versorgen.
+- Gemeinschaftsförderung wird das System zur Bildung von Gemeinschaftsinitiativen und -projekten beitragen.
+- Bedienkomfort muss das System für Mensa-Mitarbeiter:innen einfach in der Handhabung machen.
+- Effizienz sollte das System schnelle und effektive Planung und Verwaltung der Mensa-Abläufe ermöglichen.
+- Anpassungsfähigkeit muss das System erlauben, auf saisonale und präferenzbedingte Veränderungen im Speiseangebot zu reagieren.
+- Kommunikationsfähigkeit wird das System zur Förderung des Austauschs zwischen Mensa-Mitarbeiter:innen und anderen Stakeholdern beitragen.
 
 
 
@@ -38,3 +58,23 @@
 - Die Entwickler (wir) müssen die Datenbank des Systems alle x <Zeitangabe> warten.
 - Die Absturzrate des Systems muss kleiner oder gleich 0,01% sein.
 - Falls körperliche Einschränkungen des Benutzers vorliegen, muss der Benutzer die Funktionen benutzen können, ohne eingeschränkt zu sein (80%?)
+- Das System muss Eltern die Möglichkeit bieten, Ernährungspläne und -ziele ihrer Kinder einzusehen.
+- Das System sollte Eltern befähigen, Rückmeldungen zur Ernährungsbildung ihrer Kinder zu geben.
+- Das System wird Eltern ermöglichen, Vorschläge für gesunde Rezepte und Ernährungsvorschläge zu erhalten.
+- Das System sollte Eltern die Möglichkeit bieten, sich über Veranstaltungen und Aktivitäten zur Ernährungsbildung zu informieren.
+- Das System muss der Schulleitung die Möglichkeit bieten, Ernährungslehrpläne zu integrieren und zu verwalten.
+- Das System sollte der Schulleitung die Fähigkeit geben, den Erfolg der Ernährungsbildungsinitiativen zu überwachen.
+- Das System wird der Schulleitung ermöglichen, Eltern und Lehrer über Ernährungsbildungsfortschritte zu informieren.
+- Das System sollte der Schulleitung in die Lage versetzen, spezielle Ernährungsbildungsevents zu organisieren.
+- Das System muss dem Bildungsministerium die Möglichkeit bieten, Richtlinien zur Ernährungsbildung zu implementieren und zu überwachen.
+- Das System sollte dem Bildungsministerium die Fähigkeit geben, die Effektivität der Ernährungsbildung landesweit zu analysieren.
+- Das System wird dem Bildungsministerium ermöglichen, Ressourcen für die Ernährungsbildung zentral zu verwalten.
+- Das System sollte dem Bildungsministerium in die Lage versetzen, mit Bildungseinrichtungen in Bezug auf Ernährungsbildungsprogramme zu kommunizieren.
+- Das System muss der Bevölkerung die Möglichkeit bieten, sich über die Wichtigkeit von Ernährungsbildung zu informieren.
+- Das System sollte der Bevölkerung die Fähigkeit geben, sich an Diskussionen zur Ernährungsbildung zu beteiligen.
+- Das System wird der Bevölkerung ermöglichen, Erfolgsgeschichten und Best Practices auszutauschen.
+- Das System sollte der Bevölkerung in die Lage versetzen, direktes Feedback zu den Ernährungsbildungsprogrammen zu geben.
+- Das System muss Mensa-Mitarbeiter:innen die Möglichkeit bieten, das Essensangebot auf Ernährungsbildungsziele abzustimmen.
+- Das System sollte Mensa-Mitarbeiter:innen befähigen, Feedback zu Menüangeboten zu erhalten und zu verarbeiten.
+- Das System wird Mensa-Mitarbeiter:innen ermöglichen, Ernährungspräferenzen und -allergien von Schülern zu berücksichtigen.
+- Das System sollte Mensa-Mitarbeiter:innen in die Lage versetzen, mit Lehrern und Eltern bezüglich der Ernährung von Schülern zu kommunizieren.
