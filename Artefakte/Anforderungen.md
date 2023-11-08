@@ -8,17 +8,7 @@
 - Das System sollte gamifizierte Elemente und eine attraktive Benutzeroberfläche bereitstellen, um die Motivation und das Engagement der Schüler:innen aufrechtzuerhalten.
 - Das System muss regelmäßige Aktualisierungen und Wartung gewährleisten, um die Systemstabilität und Sicherheit sicherzustellen.
 - Das System sollte eine mehrsprachige Unterstützung bieten, um Schüler:innen aus verschiedenen kulturellen Hintergründen zu unterstützen.
- - Das System muss Quellen zu den gezeigten Informationen beinhalten.
-- Das System muss dem Benutzer die Möglichkeit bieten, Quellen zu den gezeigten Informationen abzurufen.
-- Das System muss Informationen zum Thema Ernährung beinhalten.
-- Das System muss Fähig sein, Informationen altersgerecht zu vermitteln.
-- Das System muss eine Ansicht für Lehrer zur Verfügung stellen
-- Das System muss ein Tutorial zur Benutzung der Lehreroberfläche beinhalten
-- Das System muss dem Lehrer die Möglichkeit bieten, ein Tutorial zur Benutzung des Systems durchzuführen.
-- Das Tutorial zur Lehreroberfläche muss für ältere Menschen konzipiert sein.
-- Das System muss im Unterricht einsetzbar sein.
-- Wenn das System im Unterricht verwendet wird, muss das System möglichst nahtlos in diesen übergehen.
-- Wenn Daten über Antworten der Schüler gespeichert werden, muss das System dem Lehrer die Möglichkeit bieten, diese einzusehen
+ 
 - Benutzerfreundlichkeit muss das System für Eltern einfach und intuitiv gestaltbar machen.
 - Barrierefreiheit sollte das System allen Eltern unabhängig von technischem Verständnis zugänglich machen.
 - Datenschutz muss die Sicherheit der persönlichen Daten im System gewährleisten.
@@ -40,7 +30,13 @@
 - Anpassungsfähigkeit muss das System erlauben, auf saisonale und präferenzbedingte Veränderungen im Speiseangebot zu reagieren.
 - Kommunikationsfähigkeit wird das System zur Förderung des Austauschs zwischen Mensa-Mitarbeiter:innen und anderen Stakeholdern beitragen.
 
-
+- Die Korrektheit der Informationen muss größer oder gleich 99% sein.
+- Die Erreichbarkeit des Systems muss größer oder gleich 99% sein.
+- Die Schriftgröße des Systems muss kleiner als x und größer als x sein.
+- Die Zeit zum Starten des Systems muss weniger als 5 Sekunden sein.
+- Die Entwickler (wir) müssen die Datenbank des Systems alle x <Zeitangabe> warten.
+- Die Absturzrate des Systems muss kleiner oder gleich 0,01% sein.
+- Falls körperliche Einschränkungen des Benutzers vorliegen, muss der Benutzer die Funktionen benutzen können, ohne eingeschränkt zu sein (80%?)
 
 ### Funktionale Anforderungen:
 
@@ -51,13 +47,7 @@
 - Das System sollte regelmäßige Erinnerungen und Benachrichtigungen bereitstellen, um die Schüler:innen an Lernaktivitäten und -ziele zu erinnern.
 - Das System muss eine klare und verständliche Anleitung zur Nutzung des Systems bieten, um sicherzustellen, dass die Schüler:innen die Plattform effektiv nutzen können.
 - Das System muss verschiedene Arten von Medieninhalten unterstützen, einschließlich Texte, Videos, Bilder und Audio, um unterschiedliche Lernstile und Präferenzen abzudecken.
-- Die Korrektheit der Informationen muss größer oder gleich 99% sein.
-- Die Erreichbarkeit des Systems muss größer oder gleich 99% sein.
-- Die Schriftgröße des Systems muss kleiner als x und größer als x sein.
-- Die Zeit zum Starten des Systems muss weniger als 5 Sekunden sein.
-- Die Entwickler (wir) müssen die Datenbank des Systems alle x <Zeitangabe> warten.
-- Die Absturzrate des Systems muss kleiner oder gleich 0,01% sein.
-- Falls körperliche Einschränkungen des Benutzers vorliegen, muss der Benutzer die Funktionen benutzen können, ohne eingeschränkt zu sein (80%?)
+
 - Das System muss Eltern die Möglichkeit bieten, Ernährungspläne und -ziele ihrer Kinder einzusehen.
 - Das System sollte Eltern befähigen, Rückmeldungen zur Ernährungsbildung ihrer Kinder zu geben.
 - Das System wird Eltern ermöglichen, Vorschläge für gesunde Rezepte und Ernährungsvorschläge zu erhalten.
@@ -78,3 +68,15 @@
 - Das System sollte Mensa-Mitarbeiter:innen befähigen, Feedback zu Menüangeboten zu erhalten und zu verarbeiten.
 - Das System wird Mensa-Mitarbeiter:innen ermöglichen, Ernährungspräferenzen und -allergien von Schülern zu berücksichtigen.
 - Das System sollte Mensa-Mitarbeiter:innen in die Lage versetzen, mit Lehrern und Eltern bezüglich der Ernährung von Schülern zu kommunizieren.
+
+- Das System muss Quellen zu den gezeigten Informationen beinhalten.
+- Das System muss dem Benutzer die Möglichkeit bieten, Quellen zu den gezeigten Informationen abzurufen.
+- Das System muss Informationen zum Thema Ernährung beinhalten.
+- Das System muss Fähig sein, Informationen altersgerecht zu vermitteln.
+- Das System muss eine Ansicht für Lehrer zur Verfügung stellen
+- Das System muss ein Tutorial zur Benutzung der Lehreroberfläche beinhalten
+- Das System muss dem Lehrer die Möglichkeit bieten, ein Tutorial zur Benutzung des Systems durchzuführen.
+- Das Tutorial zur Lehreroberfläche muss für ältere Menschen konzipiert sein.
+- Das System muss im Unterricht einsetzbar sein.
+- Wenn das System im Unterricht verwendet wird, muss das System möglichst nahtlos in diesen übergehen.
+- Wenn Daten über Antworten der Schüler gespeichert werden, muss das System dem Lehrer die Möglichkeit bieten, diese einzusehen
