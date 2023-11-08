@@ -48,10 +48,10 @@
 - Das System muss eine klare und verständliche Anleitung zur Nutzung des Systems bieten, um sicherzustellen, dass die Schüler:innen die Plattform effektiv nutzen können.
 - Das System muss verschiedene Arten von Medieninhalten unterstützen, einschließlich Texte, Videos, Bilder und Audio, um unterschiedliche Lernstile und Präferenzen abzudecken.
 
-- Das System muss Eltern die Möglichkeit bieten, Ernährungspläne und -ziele ihrer Kinder einzusehen.
-- Das System sollte Eltern befähigen, Rückmeldungen zur Ernährungsbildung ihrer Kinder zu geben.
-- Das System wird Eltern ermöglichen, Vorschläge für gesunde Rezepte und Ernährungsvorschläge zu erhalten.
-- Das System sollte Eltern die Möglichkeit bieten, sich über Veranstaltungen und Aktivitäten zur Ernährungsbildung zu informieren.
+- Das System muss Eltern die Möglichkeit bieten, den Lernfortschritt ihrer Kinder zu verfolgen.
+- Das System sollte Eltern die Fähigkeit geben, Feedback zu den Lehrmaterialien zu geben.
+- Das System wird Eltern ermöglichen, Ernährungstipps und -hinweise zu erhalten.
+- Das System sollte Eltern in die Lage versetzen, mit Lehrkräften und Mensa-Mitarbeitern zu kommunizieren.
 - Das System muss der Schulleitung die Möglichkeit bieten, Ernährungslehrpläne zu integrieren und zu verwalten.
 - Das System sollte der Schulleitung die Fähigkeit geben, den Erfolg der Ernährungsbildungsinitiativen zu überwachen.
 - Das System wird der Schulleitung ermöglichen, Eltern und Lehrer über Ernährungsbildungsfortschritte zu informieren.
