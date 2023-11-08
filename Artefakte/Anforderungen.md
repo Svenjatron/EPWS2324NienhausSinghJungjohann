@@ -8,6 +8,7 @@
 - Das System sollte gamifizierte Elemente und eine attraktive Benutzeroberfläche bereitstellen, um die Motivation und das Engagement der Schüler:innen aufrechtzuerhalten.
 - Das System muss regelmäßige Aktualisierungen und Wartung gewährleisten, um die Systemstabilität und Sicherheit sicherzustellen.
 - Das System sollte eine mehrsprachige Unterstützung bieten, um Schüler:innen aus verschiedenen kulturellen Hintergründen zu unterstützen.
+- Das System sollte Schüler:innen die Möglichkeit bieten, ihren Lernprozess gemäß ihrem individuellen Kenntnisstand zu starten und von dort aus kontinuierlich Fortschritte zu erzielen.
  
 - Benutzerfreundlichkeit muss das System für Eltern einfach und intuitiv gestaltbar machen.
 - Barrierefreiheit sollte das System allen Eltern unabhängig von technischem Verständnis zugänglich machen.
