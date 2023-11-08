@@ -1,0 +1,12 @@
+- Lernfortschrittsübersicht für Schüler (einsehbar für Lehrer/Eltern)
+- Quiz?
+- Kommunikationssystem zw Schülern und Lehrern
+- Glossar mit Suchfunktion + Quellen
+- Erinnerungsfunktion zum Lernen
+- angepasste Tutorials
+- Feedbackfunktion für Eltern an Lehrer/System zu Lernmaterial
+- Rezepte für Eltern
+
+- Fragebogen am Anfang um Schüler bei ihren Problemen abzuholen
+- einzelne, kleine, persönliche Lernziele
+- Lernbelastete inhalte, welche in der Schule getrackt werden
