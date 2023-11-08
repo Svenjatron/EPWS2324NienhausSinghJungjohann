@@ -1,7 +1,5 @@
 # Anforderungen
 
-## Schueler:innen 
-
 ### Nicht-funktionale Anforderungen:
 
 - Das System muss eine hohe Benutzerfreundlichkeit und intuitive Benutzeroberfläche bieten, um sicherzustellen, so dass Schüler:innen problemlos auf die Inhalte zugreifen können. 
