@@ -60,6 +60,26 @@
 |||Perit| |
 |||Sven| |
 ||29.10 - 2h|Caro||
+___
+## Woche vom 6. - 12 November
+
+### Modellierung Erstes Konzept
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|8.11. - 1h |8.11 - 1h|Perit, Caro, Sven| Anforderungen durchgehen und erste Idee konzipieren|
+
+### Erstellung Folien
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|8.11. - 1h |8.11 - 1h|Perit, Caro, Sven| Anforderungen durchgehen und erste Idee konzipieren|
+|8.11. | | Perit | Exposè + Domänenmodell |
+|||Sven|Stakeholder + Anforderungen|
+|||Caro |Marktanalyse|
+
+### Zusammenfassung Folien
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|9.11. 16 Uhr - 1h | |Perit, Caro, Sven| Folien Zusammenfassen und Erste Idee erstellen|
 
 
 
@@ -93,6 +113,7 @@
   - Soziotechnische Systeme
     - Behaviour Change
     - 
+
 
 
 Muster:
