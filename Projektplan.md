@@ -14,12 +14,12 @@
 ### Domänenmodell
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|So 22.10 - 1h|Prerit, Sven|||
+|So 22.10|1h|Prerit, Sven||
 ||||
 ### Stakeholderanalyse
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|So 22.10 - 2h|Prerit, Sven|---|---|
+|So 22.10|2h|Prerit, Sven|---|
 ||||
 ### Marktanalyse
 |Geplant |Durchgeführt|Teilnehmer|Aufgabe| Notiz |
@@ -51,7 +51,7 @@
 |von 25.10 - nächstes Treffen am WE||jeder|Quellen/Daten durcharbeiten für Gesprächsgrundlage im Team |
 |||Prerit| |
 |||Sven| |
-||25.10 - 1h|Caro||
+||25.10 - 1h|Caro, Sven, Prerit||
 
 ### Anforderungen
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
