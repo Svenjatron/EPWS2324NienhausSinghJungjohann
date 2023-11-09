@@ -110,9 +110,14 @@ ___
     - quasi alles :^) 
   - Soziotechnische Systeme
     - Behaviour Change
-    - 
-
-
+   
+### Artefakte für das 2. Audit
+- Use Case- Diagram
+- Funktionsübersicht
+- Datenstruktur
+- Projektrisiken
+- Proof of concepts
+- Wireframes
 
 Muster:
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
