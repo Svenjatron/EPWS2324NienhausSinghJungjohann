@@ -49,8 +49,6 @@
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |von 25.10 - nächstes Treffen am WE||jeder|Quellen/Daten durcharbeiten für Gesprächsgrundlage im Team |
-|||Prerit| |
-|||Sven| |
 ||25.10 - 1h|Caro, Sven, Prerit||
 
 ### Anforderungen
