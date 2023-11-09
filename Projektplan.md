@@ -57,8 +57,8 @@
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |von 26.10 - nächstes Treffen am Mo. 30.10.||jeder|Anforderungen formulieren für jeweilige Stakeholder |
-|||Prerit| |
-|||Sven| |
+||29.10 - 2h|Prerit| |
+||29.10 - 2h|Sven| |
 ||29.10 - 2h|Caro||
 ___
 ## Woche vom 6. - 12 November
