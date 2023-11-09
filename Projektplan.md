@@ -72,7 +72,7 @@ ___
 |8.11. - 1h |8.11 - 1h|Prerit, Caro, Sven| Anforderungen durchgehen und erste Idee konzipieren|
 |8.11. | | Prerit | Exposè + Domänenmodell |
 |||Sven|Stakeholder + Anforderungen|
-|||Caro |Marktanalyse|
+|8.11 - 1h| 8.11, 9.11 - 2h|Caro |Marktanalyse|
 
 ### Zusammenfassung Folien
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
