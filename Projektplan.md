@@ -41,7 +41,7 @@
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |von 25.10 - nächstes Treffen am WE|| jeder | Erfordernisse formulieren für jeweilige Stakeholder|
-|25.10 - 1h|26.10 - 1h|Perit| Eltern und Rest|
+|25.10 - 1h|26.10 - 1h|Prerit| Eltern und Rest|
 |25.10 - 1h|26.10 - 1h|Sven| Schüler:innen|
 |25.10 - 1h| 25.10 - 1h |Caro|Lehrer:innenn|
 
@@ -49,7 +49,7 @@
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |von 25.10 - nächstes Treffen am WE||jeder|Quellen/Daten durcharbeiten für Gesprächsgrundlage im Team |
-|||Perit| |
+|||Prerit| |
 |||Sven| |
 ||25.10 - 1h|Caro||
 
@@ -57,7 +57,7 @@
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |von 26.10 - nächstes Treffen am Mo. 30.10.||jeder|Anforderungen formulieren für jeweilige Stakeholder |
-|||Perit| |
+|||Prerit| |
 |||Sven| |
 ||29.10 - 2h|Caro||
 ___
@@ -66,20 +66,20 @@ ___
 ### Modellierung Erstes Konzept
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|8.11. - 1h |8.11 - 1h|Perit, Caro, Sven| Anforderungen durchgehen und erste Idee konzipieren|
+|8.11. - 1h |8.11 - 1h|Prerit, Caro, Sven| Anforderungen durchgehen und erste Idee konzipieren|
 
 ### Erstellung Folien
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|8.11. - 1h |8.11 - 1h|Perit, Caro, Sven| Anforderungen durchgehen und erste Idee konzipieren|
-|8.11. | | Perit | Exposè + Domänenmodell |
+|8.11. - 1h |8.11 - 1h|Prerit, Caro, Sven| Anforderungen durchgehen und erste Idee konzipieren|
+|8.11. | | Prerit | Exposè + Domänenmodell |
 |||Sven|Stakeholder + Anforderungen|
 |||Caro |Marktanalyse|
 
 ### Zusammenfassung Folien
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|9.11. 16 Uhr - 1h | |Perit, Caro, Sven| Folien Zusammenfassen und Erste Idee erstellen|
+|9.11. 16 Uhr - 1h | |Prerit, Caro, Sven| Folien Zusammenfassen und Erste Idee erstellen|
 
 
 
