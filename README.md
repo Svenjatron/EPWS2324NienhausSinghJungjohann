@@ -68,4 +68,6 @@ https://www.ernaehrungs-umschau.de/fileadmin/Ernaehrungs-Umschau/pdfs/pdf_2010/0
 
 <img width="805" alt="Domänenmodell" src="https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/117512238/91b04682-456a-4e79-a7ea-20bb00b359da">
 
+## Domänenmodell iteriert
 
+<img width="1241" alt="Bildschirmfoto 2023-11-20 um 13 39 43" src="https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/95627941/567c41bb-5114-4572-a1b2-1ce1dc9d2d3a">
