@@ -11,3 +11,15 @@
 ## Zusammenfassung
 
 Basierend auf der durchgeführten Stakeholder-Analyse kann festgestellt werden, dass wahrscheinlich nur die Schüler:innen und möglicherweise die Lehrenden direkt mit dem System und der Benutzeroberfläche interagieren werden. Bei der Gestaltung des Systems sollten daher ihre spezifischen Erfordernisse und Erwartungen besonders berücksichtigt werden. Gleichzeitig müssen die Interessen der anderen Stakeholder in Bezug auf die Machbarkeit und Finanzierbarkeit des Projekts natürlich ebenfalls Beachtung finden.
+
+## Stakeholder-Analyse (iteriert)
+
+### Zusätzliche Stakeholder
+
+- Freundeskreis
+- männliche Jugendliche 
+- weibliche Jugendliche
+- Sportinteresssierte
+- Übergewichtige
+
+
