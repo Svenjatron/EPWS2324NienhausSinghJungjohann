@@ -70,4 +70,5 @@ https://www.ernaehrungs-umschau.de/fileadmin/Ernaehrungs-Umschau/pdfs/pdf_2010/0
 
 ## Domänenmodell iteriert
 
+![EP - Copy of Ernährung und Gesundheit von Jugendlichen in Deutschland](https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/117512238/3517c614-431a-4502-be3c-23d28690eff0)
 
