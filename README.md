@@ -70,4 +70,4 @@ https://www.ernaehrungs-umschau.de/fileadmin/Ernaehrungs-Umschau/pdfs/pdf_2010/0
 
 ## Domänenmodell iteriert
 
-<img width="1241" alt="Bildschirmfoto 2023-11-20 um 13 39 43" src="https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/95627941/567c41bb-5114-4572-a1b2-1ce1dc9d2d3a">
+
