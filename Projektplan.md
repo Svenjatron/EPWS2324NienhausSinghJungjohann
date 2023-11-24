@@ -77,7 +77,24 @@ ___
 ### Zusammenfassung Folien
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|9.11. 16 Uhr - 1h | |Prerit, Caro, Sven| Folien Zusammenfassen und Erste Idee erstellen|
+|9.11. 16 Uhr - 1h | 9.11. 16 Uhr - 1h |Prerit, Caro, Sven| Folien Zusammenfassen und Erste Idee erstellen|
+
+## Woche vom 13. - 19. November
+
+### Iteration
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|||Sven|Domänenmodell|
+|18.9 - 1h| 18.9 - 1h|Caro| Marktanalyse|
+
+## Woche vom 10. - 26 November
+
+### Iteration Stakeholder, Erfordernisse, Anforderungen
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|24.11. - 2h|24.11 - 2h (extended)|Caro| Erfordernisse: Schüler, Sportinteressierte S. Übergewichtige S.|
+|||Perit| Freundeskreis |
+|26.11 - 2h||Caro| Anforderungen für obige Stakeholder|
 
 
 
@@ -122,4 +139,4 @@ ___
 Muster:
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-||||
+|||||
