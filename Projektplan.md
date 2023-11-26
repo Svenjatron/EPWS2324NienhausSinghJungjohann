@@ -94,7 +94,7 @@ ___
 |---|---|---|---|
 |24.11. - 2h|24.11 - 2h (extended)|Caro| Erfordernisse: Schüler, Sportinteressierte S. Übergewichtige S.|
 |||Perit| Freundeskreis |
-|26.11 - 2h||Caro| Anforderungen für obige Stakeholder|
+|26.11 - 2h|26.11 - 2h (unfinished)|Caro| Anforderungen für obige Stakeholder|
 
 
 
