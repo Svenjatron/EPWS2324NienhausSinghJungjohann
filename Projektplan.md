@@ -78,7 +78,7 @@ ___
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |9.11. 16 Uhr - 1h | 9.11. 16 Uhr - 1h |Prerit, Caro, Sven| Folien Zusammenfassen und Erste Idee erstellen|
-
+---
 ## Woche vom 13. - 19. November
 
 ### Iteration
@@ -86,7 +86,7 @@ ___
 |---|---|---|---|
 |||Sven|Domänenmodell|
 |18.9 - 1h| 18.9 - 1h|Caro| Marktanalyse|
-
+---
 ## Woche vom 10. - 26 November
 
 ### Iteration Stakeholder, Erfordernisse, Anforderungen
@@ -95,13 +95,57 @@ ___
 |24.11. - 2h|24.11 - 2h (extended)|Caro| Erfordernisse: Schüler, Sportinteressierte S. Übergewichtige S.|
 |||Perit| Freundeskreis |
 |26.11 - 2h|26.11 - 2h (unfinished)|Caro| Anforderungen für obige Stakeholder|
-
+---
 ## Woche vom 27. - 03. December
 
+### *28.11 Kurzes Teamtreffen*
+
+### Erste, technische Idee besprechen
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|30.11 - 1h| 2.12 - 1h |Perit, Caro | Technische Idee diskutieren und Aufgaben verteilen|
+
+### Use Case Diagramme für wichtigste Use Cases
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|03.12 - 2h | 03.12 - 2h | Caro | Use Cases mind. zu Schulaufgaben, private Aufgaben |
+
+### Funktionsübersicht
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|||Perit| Funktionsübersicht schreiben|
+
+### *03.12 Kurzes Gruppentreffen mit Sven*
+
+### Erste, technische Idee besprechen
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|03.12 - 1h| 03.12 - 1h |Sven, Caro | Technische Idee diskutieren und Aufgaben verteilen|
+
+### Projektrisiken
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|||Sven| Projektrisiken formulieren u. begründen|
+
+---
+## Woche vom 04. - 10. Dezember
+
+### Datenstruktur
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|04.12 - 1h| |Caro| Datenstruktur aufschreiben|
+
+### Stakeholder, Erf. und Anf. in 1 Dokument zusammenfügen
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|||Caro| Alle neuen Iterationen zum Thema Stakeholder zusammenfügen |
+
+### Proof Of Concepts
+
+### evtl Wireframes? Denke, das ist zu Wenig Zeit dafür...
 
 
-
-
+---
 #### Ablauf Brainstorming Notizen:
 - Erfordernisse
     Schüler:innen   -> 
