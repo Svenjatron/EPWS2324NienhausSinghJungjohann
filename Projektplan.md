@@ -96,6 +96,10 @@ ___
 |||Perit| Freundeskreis |
 |26.11 - 2h|26.11 - 2h (unfinished)|Caro| Anforderungen für obige Stakeholder|
 
+## Woche vom 27. - 03. December
+
+
+
 
 
 #### Ablauf Brainstorming Notizen:
