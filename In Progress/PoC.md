@@ -7,6 +7,7 @@
 - Funktionsfähigkeit vom Schulaufgaben-System sicherstellen
 - Plattformkompatibilität testen => funktioniert Anwendung auf verschiedenen Geräten und Plattformen konsistent und effektiv
 - Benutzerfreundlichkeit prüfen
+- Prüfung der Tutorials bzw der Anleitungen
 
 ### Durchführung 
 
