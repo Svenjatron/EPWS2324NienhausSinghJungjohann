@@ -158,10 +158,11 @@ ___
 - Wireframes
 
 ### Artefakte für das 3. Audit
-- erster Prototyp
-- durchgeführte PoC's
-- Erklärung Anwendungslogik
+- Wireframes
 - Klassendiagramm
+- Pseudocode
+- Prototyp
+- Getesteter Prototyp (PoC)
 
 ---
 Muster:
