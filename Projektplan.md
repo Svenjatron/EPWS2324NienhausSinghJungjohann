@@ -133,49 +133,22 @@ ___
 ### Datenstruktur
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|04.12 - 1h| |Caro| Datenstruktur aufschreiben|
+|04.12 - 1h| 07.12. - 1h |Caro| Datenstruktur aufschreiben|
 
 ### Stakeholder, Erf. und Anf. in 1 Dokument zusammenfügen
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|||Caro| Alle neuen Iterationen zum Thema Stakeholder zusammenfügen |
+|05.12. - 2h| 05.12. - >1h, 06.12 - 1h, 07.12. - 2h |Caro| Alle neuen Iterationen zum Thema Stakeholder zusammenfügen |
 
 ### Proof Of Concepts
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|||Sven| PoC |
 
 ### evtl Wireframes? Denke, das ist zu Wenig Zeit dafür...
 
 
 ---
-#### Ablauf Brainstorming Notizen:
-- Erfordernisse
-    Schüler:innen   -> 
-    Lehrer:innen    -> 
-    Eltern + rest   -> 
-- Datenanalyse (siehe Quellen Exposè) -> jeder bis zum nächsten treffen
-  
-- Anforderungen - Am nächsten Treffen Aufteilen
-- erste techn. Spezifikationen, Proof of Concept
-
-- Alleinstellungsmerkmale
-- Projektrisiken
-  -  theoretische evaluationen?
-  -  siehe Gamification Prinzipien
-  
-- erster PoC?
-
-- Altersgruppe auswählen! (Grundschule, Sek 1, Oberstufe)
-  - siehe Datenanalyse
-
-
-##### Brainstorming Social Computing Prinzipien:
-- Gamification Prinzipien:
-  - Datenanalyse (siehe Quellen Exposè)
-    - Analysieren und für Anforderungen benutzen
-  - Gamification
-    - quasi alles :^) 
-  - Soziotechnische Systeme
-    - Behaviour Change
-   
 ### Artefakte für das 2. Audit
 - Use Case- Diagram
 - Funktionsübersicht
@@ -184,6 +157,13 @@ ___
 - Proof of concepts
 - Wireframes
 
+### Artefakte für das 3. Audit
+- erster Prototyp
+- durchgeführte PoC's
+- Erklärung Anwendungslogik
+- Klassendiagramm
+
+---
 Muster:
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
