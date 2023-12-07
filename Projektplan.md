@@ -93,7 +93,7 @@ ___
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |24.11. - 2h|24.11 - 2h (extended)|Caro| Erfordernisse: Schüler, Sportinteressierte S. Übergewichtige S.|
-|||Perit| Freundeskreis |
+|||Prerit| Freundeskreis |
 |26.11 - 2h|26.11 - 2h (unfinished)|Caro| Anforderungen für obige Stakeholder|
 ---
 ## Woche vom 27. - 03. December
@@ -103,7 +103,7 @@ ___
 ### Erste, technische Idee besprechen
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|30.11 - 1h| 2.12 - 1h |Perit, Caro | Technische Idee diskutieren und Aufgaben verteilen|
+|30.11 - 1h| 2.12 - 1h |Prerit, Caro | Technische Idee diskutieren und Aufgaben verteilen|
 
 ### Use Case Diagramme für wichtigste Use Cases
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
@@ -113,7 +113,7 @@ ___
 ### Funktionsübersicht
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|||Perit| Funktionsübersicht schreiben|
+|03.12 - 2h | 03.12 - 3h |Prerit| Funktionsübersicht schreiben|
 
 ### *03.12 Kurzes Gruppentreffen mit Sven*
 
