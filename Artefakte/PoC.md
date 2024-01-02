@@ -59,10 +59,34 @@ Zur Überprüfung der Anwendung als Proof of Concept wird eine interne Testgrupp
 - Unübersichtliche oder fehlerhafte Benutzeroberfläche trotz Verwendung des Jetpack Compose Frameworks.
 - Probleme bei der Erfassung oder Anzeige von Benutzerdaten.
 - Schwierigkeiten bei der Anzeige von Anmeldemöglichkeiten und Authentifizierungsmethoden.
-- 
+
 ### Fallbacks:
 
 - Im Falle von Unübersichtlichkeit oder Fehlern in der Benutzeroberfläche trotz Jetpack Compose: Überprüfung der Designentscheidungen und Anpassung bei Bedarf.
 - Bei Problemen mit der Erfassung oder Anzeige von Benutzerdaten: Überprüfung der Implementierung und Fehlerbehebung.
 - Bei Schwierigkeiten mit Anmeldemöglichkeiten und Authentifizierung: Überprüfung der UI/UX-Entscheidungen und Optimierung.
 
+## Individualisierte Aufgabenbearbeitung
+
+### Beschreibung des Vorhabens:
+
+- Das System weist der Schülerin bzw. dem Schüler automatisch eine vordefinierte Aufgabe zu.
+- Die Schülerin bzw. der Schüler simuliert die Bearbeitung der zugewiesenen Aufgabe.
+- Die Schülerin bzw. der Schüler setzt manuell den Status der Aufgabe auf 'erledigt'.
+- Das System vermerkt die erledigte Aufgabe.
+- 
+### Exit-Kriterien:
+
+- Erfolgreiche Simulation der Bearbeitung der automatisch zugewiesenen Aufgabe durch die Schülerin bzw. den Schüler.
+- Manuelle Statusänderung einer Aufgabe durch die Schülerin bzw. den Schüler auf 'erledigt'.
+- Erfassung und Vermerk des erledigten Status.
+  
+### Fail-Kriterien:
+
+- Probleme bei der Simulation der Bearbeitung der zugewiesenen Aufgabe.
+- Probleme bei der manuellen Statusänderung oder Markierung von erledigten Aufgaben.
+
+### Fallbacks:
+
+- Bei Problemen mit der Simulation der Bearbeitung: Überprüfung der Implementierung und Fehlerbehebung.
+- Bei Schwierigkeiten mit der manuellen Statusänderung: Überprüfung der Implementierung und Optimierung.
