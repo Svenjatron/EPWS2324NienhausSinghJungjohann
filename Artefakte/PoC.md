@@ -40,3 +40,29 @@ Zur Überprüfung der Anwendung als Proof of Concept wird eine interne Testgrupp
 - Bei Problemen mit der Speicherung in der Cloud-Datenbank: Überprüfung der Verbindung und Optimierung des Speicherprozesses.
 - Bei Authentifizierungsproblemen: Überprüfung der Implementierung der Authentifizierungsmethoden und Anpassung bei Bedarf.
   
+## Testung von Benutzeroberfläche mit Jackpack Compose und Android Studio
+
+### Beschreibung des Vorhabens:
+
+- Umsetzung einer gebrauchstauglichen Oberfläche für die Interaktion mit Firebase Authentication und Cloud Firestore unter Verwendung des Jetpack Compose Frameworks.
+- Erfassung und Anzeige von Benutzerdaten.
+- Klare Darstellung von Anmeldemöglichkeiten und Authentifizierungsmethoden.
+
+### Exit-Kriterien:
+
+- Erfolgreiche Darstellung der Benutzeroberfläche für die Benutzer:innen unter Einsatz des Jetpack Compose Frameworks.
+- Erfolgreiche Erfassung und Anzeige von Benutzerdaten.
+- Klare und intuitive Anzeige von Anmeldemöglichkeiten und Authentifizierungsmethoden.
+
+### Fail-Kriterien:
+
+- Unübersichtliche oder fehlerhafte Benutzeroberfläche trotz Verwendung des Jetpack Compose Frameworks.
+- Probleme bei der Erfassung oder Anzeige von Benutzerdaten.
+- Schwierigkeiten bei der Anzeige von Anmeldemöglichkeiten und Authentifizierungsmethoden.
+- 
+### Fallbacks:
+
+- Im Falle von Unübersichtlichkeit oder Fehlern in der Benutzeroberfläche trotz Jetpack Compose: Überprüfung der Designentscheidungen und Anpassung bei Bedarf.
+- Bei Problemen mit der Erfassung oder Anzeige von Benutzerdaten: Überprüfung der Implementierung und Fehlerbehebung.
+- Bei Schwierigkeiten mit Anmeldemöglichkeiten und Authentifizierung: Überprüfung der UI/UX-Entscheidungen und Optimierung.
+
