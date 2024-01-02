@@ -90,3 +90,5 @@ Zur Überprüfung der Anwendung als Proof of Concept wird eine interne Testgrupp
 
 - Bei Problemen mit der Simulation der Bearbeitung: Überprüfung der Implementierung und Fehlerbehebung.
 - Bei Schwierigkeiten mit der manuellen Statusänderung: Überprüfung der Implementierung und Optimierung.
+
+## Aufgabenausgabe
