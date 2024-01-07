@@ -93,7 +93,7 @@ Zur Überprüfung der Anwendung als Proof of Concept wird eine interne Testgrupp
 
 ## Aufgabenausgabe
 
-## Individualisierte Aufgabenbearbeitung
+## Personalisierte Lerninhalte
 
 ### Beschreibung des Vorhabens:
 - Das Entwicklerteam setzt Tags manuell per Eingabe, um bestimmte Interessen und Kenntnisse zu repräsentieren.
