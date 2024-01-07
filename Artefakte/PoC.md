@@ -92,3 +92,26 @@ Zur Überprüfung der Anwendung als Proof of Concept wird eine interne Testgrupp
 - Bei Schwierigkeiten mit der manuellen Statusänderung: Überprüfung der Implementierung und Optimierung.
 
 ## Aufgabenausgabe
+
+## Individualisierte Aufgabenbearbeitung
+
+### Beschreibung des Vorhabens:
+- Das Entwicklerteam setzt Tags manuell per Eingabe, um bestimmte Interessen und Kenntnisse zu repräsentieren.
+- Der Algorithmus analysiert die manuell gesetzten Tags und wählt Lerninhalte aus, die den vordefinierten Interessen und Kenntnissen entsprechen.
+  
+### Exit-Kriterien:
+- Erfolgreiche manuelle Setzung von Tags durch das Entwicklerteam.
+- Erfolgreiche Auswahl von Lerninhalten durch den Algorithmus basierend auf den manuell gesetzten Tags.
+- Präsentation der vordefinierten Lerninhalte.
+
+### Fail-Kriterien:
+- Probleme bei der manuellen Setzung von Tags durch das Entwicklerteam.
+- Fehlerhafte Auswahl von Lerninhalten durch den Algorithmus.
+- Probleme bei der Präsentation der vordefinierten Lerninhalte.
+  
+### Fallbacks:
+- Bei Schwierigkeiten mit der manuellen Setzung von Tags: Überprüfung der Implementierung und Fehlerbehebung.
+- Bei fehlerhafter Auswahl von Lerninhalten durch den Algorithmus: Überprüfung der Logik und Anpassung bei Bedarf.
+- Bei Schwierigkeiten bei der Präsentation der vordefinierten Lerninhalte: Überprüfung der Implementierung und Fehlerbehebung.
+
+
