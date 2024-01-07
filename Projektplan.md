@@ -145,7 +145,38 @@ ___
 |---|---|---|---|
 |||Sven| PoC |
 
-### evtl Wireframes? Denke, das ist zu Wenig Zeit dafür...
+___
+## Woche vom 11. - 17. Dezember
+
+### 2. Audit
+### Überarbeiten der Artefakte aufgrund der Kritik vom Audit
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+||||Domänenmodell überarbeiten (Betreuer von inkludierten Kindern)|
+___
+
+## Woche vom 18. - 24. Dezember
+### PoC
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|||Sven|PoC überarbeiten|
+### Wireframes
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|||Perit|Wireframes|
+### Klassendiagramm
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|21.12 - <1h| 23.12 - <1h|Caro|grobes Konzept zum Klassendiagramm erstellt|
+___
+## Woche vom 25. - 31. Dezember
+### Keine nennenswerte Arbeit da Feiertage :) und Krankheit :(
+___
+
+## Woche vom 1. - 7. Januar 2024
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|5.1. - < 1h| 5.1. - <1h|Caro|Klassendiagramm|
 
 
 ---
