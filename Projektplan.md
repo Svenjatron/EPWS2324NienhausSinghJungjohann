@@ -177,6 +177,41 @@ ___
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |5.1. - < 1h| 5.1. - <1h|Caro|Klassendiagramm|
+---
+## Woche vom 8. bis 14. Januar
+
+ ---
+## Woche vom 15. bis 21. Januar
+
+### Überarbeitung Klassendiagramm nach Feedback
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|16.01. - < 1h| |Caro|Klassendiagramm Itreration|
+
+### PoC Überarbeiten
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|17.01 - 1h| |Sven|PoC Iteration|
+
+### Domänenmodell Überarbeiten
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|16.01 - <1h| |Perit|Domänenmodell Üebrarbeiten|
+
+### Foliensätze Vorbereiten
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|16.01. - < 1h| |Perit|Foliensätze Vorbereiten|
+
+### PoC 1 - Aufgabenzuordnung durch Tags
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|17. 01 - 2h| |Sven|Coding|
+
+### PoC 2 - Aufgabenbearbeitung
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|17. 01 - 3h| |Caro|Coding|
 
 
 ---
