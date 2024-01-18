@@ -127,19 +127,19 @@ Der vorliegende Code stellt eine Grundlage für die Bearbeitung von Aufgaben und
 #### Benutzerklassen:
 
 - Klassen für Lehrer und Schüler sind vorhanden, wobei gemeinsame Eigenschaften wie E-Mail, Passwort und Schulklasse berücksichtigt werden.
-- 
+  
 #### Schulklassenklassen:
 
 - Es gibt eine abstrakte Klasse für Schulklasse und eine konkrete Klasse für Schulgruppen, die Informationen wie Name, Kurs, Lehrer, Schülerliste, aktive Aufgaben und Chat beinhalten.
-- 
+  
 #### Aufgabenklassen:
 
 - Klassen für Aufgaben und Teilaufgaben sind definiert und beinhalten wichtige Informationen wie Namen, Tags und Teilaufgabenlisten.
-- 
+  
 #### Teilaufgabenklassen:
 
 - Abstrakte und konkrete Klassen für Teilaufgaben ermöglichen eine spezifische Umsetzung von verschiedenen Aufgabentypen.
-- 
+  
 #### Antwortenklassen:
 
 Es gibt abstrakte Klassen für Antworten, wobei spezifische Klassen für verschiedene Antworttypen implementiert sind.
