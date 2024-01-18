@@ -75,3 +75,8 @@ https://www.ernaehrungs-umschau.de/fileadmin/Ernaehrungs-Umschau/pdfs/pdf_2010/0
 ## Domänenmodell iteriert 2
 
 ![EP - Copy of Ernährung und Gesundheit von Jugendlichen in Deutschland](https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/95627941/950243ec-30ff-4e10-a77a-13e952bd6802)
+
+## Domänenmodell iteriert 3
+
+![EP - Copy of Ernährung und Gesundheit von Jugendlichen in Deutschland (1)](https://github.com/Svenjatron/EPWS2324NienhausSinghJungjohann/assets/95627941/4b77ea5c-b9fe-4cb1-8a4f-2c8f04e78028)
+
