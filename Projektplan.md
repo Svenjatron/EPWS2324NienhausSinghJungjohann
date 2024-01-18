@@ -186,7 +186,7 @@ ___
 ### Überarbeitung Klassendiagramm nach Feedback
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|16.01. - < 1h| |Caro|Klassendiagramm Itreration|
+|16.01. - < 1h| 17.01 - >1h |Caro|Klassendiagramm Itreration|
 
 ### PoC Überarbeiten
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
@@ -211,7 +211,7 @@ ___
 ### PoC 2 - Aufgabenbearbeitung
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|17. 01 - 3h| |Caro|Coding|
+|17. 01 - 3h| 17.01 - 4h |Caro|Coding|
 
 
 ---
@@ -229,6 +229,13 @@ ___
 - Pseudocode
 - Prototyp
 - Getesteter Prototyp (PoC)
+
+### Artefakte für das 4. Audit:
+- Wireframes
+- Tag-Liste
+- Funktionaler Prototyp
+- Fazit
+- Poster
 
 ---
 Muster:
