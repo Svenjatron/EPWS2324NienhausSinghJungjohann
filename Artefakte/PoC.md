@@ -153,7 +153,7 @@ Die main-Funktion repräsentiert eine Beispielumgebung, in der Aufgaben, Teilauf
 - Erfolgreiche Erstellung von Aufgaben und Teilaufgaben.
 - Erfolgreiche Bearbeitung von Aufgaben durch die aufgabeAusführen-Funktion.
 - Zuverlässige Umsetzung der Beispielumgebung.
-- 
+  
 ## Fail-Kriterien:
 
 - Probleme bei der Erstellung von Aufgaben und Teilaufgaben.
