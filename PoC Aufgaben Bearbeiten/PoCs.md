@@ -1,4 +1,4 @@
-#Durchgeführte Proof of Concepts
+# Durchgeführte Proof of Concepts
 
 ## Personalisierte Inhalteauswahl basierend auf Tags
 
