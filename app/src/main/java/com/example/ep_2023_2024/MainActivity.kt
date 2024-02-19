@@ -1,5 +1,7 @@
 package com.example.ep_2023_2024
 
+import SchuelerScreen
+
 import QuizScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.ep_2023_2024.ui.theme.EP_2023_2024Theme
 import com.google.firebase.FirebaseApp
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     // Aufrufen der QuizScreen Composable-Funktion
-                    QuizScreen()
+                    SchuelerScreen()
                 }
             }
         }
@@ -36,6 +39,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     EP_2023_2024Theme {
-        QuizScreen()
+        SchuelerScreen()
     }
 }

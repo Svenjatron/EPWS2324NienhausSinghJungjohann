@@ -1,36 +1,35 @@
 package com.example.ep_2023_2024.model
 
-
-// Benutzer:innen KLassen //
+// Benutzer:innen Klassen //
 
 abstract class Benutzer(
-    val email: String,
-    val passwort: String,
-    val name: String,
-    val vorname: String,
-    val schulklasse: Schulklasse,
-    var isEmailVerified: Boolean
+    var email: String = "",
+    var passwort: String = "",
+    var name: String = "",
+    var vorname: String = "",
+    var schulklasse: Schulklasse? = null,
+    var isEmailVerified: Boolean = false
 )
 
 class Lehrer(
-    email: String,
-    passwort: String,
-    name: String,
-    vorname: String,
-    schulklasse: Schulklasse,
-    isEmailVerified: Boolean,
-    val unterrichtsfach: String
+    email: String = "",
+    passwort: String = "",
+    name: String = "",
+    vorname: String = "",
+    schulklasse: Schulklasse? = null,
+    isEmailVerified: Boolean = false,
+    var unterrichtsfach: String = ""
 ) : Benutzer(email, passwort, name, vorname, schulklasse, isEmailVerified)
 
 class Schueler(
-    email: String,
-    passwort: String,
-    name: String,
-    vorname: String,
-    schulklasse: Schulklasse,
-    isEmailVerified: Boolean,
-    val persönlichesInteresse: String,
-    val interessenListe: List<String>
+    email: String = "",
+    passwort: String = "",
+    name: String = "",
+    vorname: String = "",
+    schulklasse: Schulklasse? = null,
+    isEmailVerified: Boolean = false,
+    var persönlichesInteresse: String = "",
+    var interessenListe: List<String> = emptyList()
 ) : Benutzer(email, passwort, name, vorname, schulklasse, isEmailVerified)
 
 // Schulklassen Klassen //
@@ -39,47 +38,52 @@ abstract class Schulklasse
 
 abstract class Chat
 
-
 class Schulgruppe(
-    val name: String,
-    val course: String,
-    val schoolclass: Schulklasse,
-    val admin: Lehrer,
-    val studentList: List<Schueler>,
-    val aktiveAufgabeList: List<Schul_A>,
-    val chat: Chat
+    var name: String = "",
+    var course: String = "",
+    var schoolclass: Schulklasse? = null,
+    var admin: Lehrer? = null,
+    var studentList: List<Schueler> = emptyList(),
+    var aktiveAufgabeList: List<Schul_A> = emptyList(),
+    var chat: Chat? = null
 )
-
 
 // Aufgaben Klassen //
 
 open class Aufgabe(
-    val name: String,
-    val tag: String,
-    val teilaufgabenListe: List<Teilaufgabe>,
-    val suggestedGrade: Int
+    var name: String = "",
+    var tag: String = "",
+    var teilaufgabenListe: List<Teilaufgabe> = emptyList(),
+    var suggestedGrade: Int = 0
 )
-data class Schul_A(val bearbeitendeSchueler: List<Schueler>) : Aufgabe("", "", listOf(), 0)
 
-data class Privat_A(val aufgabe: Aufgabe, val bearbeitendeSchueler: List<Schueler>)
+class Schul_A(
+    var bearbeitendeSchueler: List<Schueler> = emptyList()
+) : Aufgabe()
+
+class Privat_A(
+    var aufgabe: Aufgabe? = null,
+    var bearbeitendeSchueler: List<Schueler> = emptyList()
+)
 
 class Teilaufgabe(
-    val title: String,
-    val description: String,
-    val question: String,
-    val media: Medien,
-    val answerList: List<Antwort>
+    var title: String = "",
+    var description: String = "",
+    var question: String = "",
+    var media: Medien? = null,
+    var answerList: List<Antwort> = emptyList()
 )
+
 abstract class Medien
 
 data class Antwort(
-    val answerText: String,
-    val answerMedia: Medien,
-    val student: Schueler,
-    val subtask: Teilaufgabe,
-    val isCorrect: Boolean,
-    val correctAnswer: String,
-    val isPrivate: Boolean
+    var answerText: String = "",
+    var answerMedia: Medien? = null,
+    var student: Schueler? = null,
+    var subtask: Teilaufgabe? = null,
+    var isCorrect: Boolean = false,
+    var correctAnswer: String = "",
+    var isPrivate: Boolean = false
 )
 
 
