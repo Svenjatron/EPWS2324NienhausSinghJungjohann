@@ -1,3 +1,5 @@
+package com.example.ep_2023_2024.view
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.BasicTextField

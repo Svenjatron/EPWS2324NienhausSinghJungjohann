@@ -86,5 +86,9 @@ data class Antwort(
     var isPrivate: Boolean = false
 )
 
+// Tag Klasse //
+
+data class Tag(val name: String = "")
+
 
 

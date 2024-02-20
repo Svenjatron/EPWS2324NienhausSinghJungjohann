@@ -14,27 +14,42 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.lightColorScheme
+import androidx.compose.material3.darkColorScheme
+
+
+val OwncapBlack = Color(0xFF012626)
+val OwncapTurquoise = Color(0xFF04BFBF)
+val OwncapGreen = Color(0xFF048C4D)
+val OwncapDarkGreen = Color(0xFF035928)
+val OwncapCream = Color(0xFFCEF2D7)
+
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = OwncapTurquoise,
+    secondary = OwncapGreen,
+    tertiary = OwncapCream,
+    background = OwncapBlack,
+    surface = OwncapDarkGreen,
+    onPrimary = OwncapBlack,
+    onSecondary = OwncapCream,
+    onTertiary = OwncapBlack,
+    onBackground = OwncapCream,
+    onSurface = OwncapCream,
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = OwncapTurquoise,
+    secondary = OwncapGreen,
+    tertiary = OwncapCream,
+    background = OwncapBlack,
+    surface = OwncapDarkGreen,
+    onPrimary = OwncapBlack,
+    onSecondary = OwncapCream,
+    onTertiary = OwncapBlack,
+    onBackground = OwncapCream,
+    onSurface = OwncapCream,
 )
 
 @Composable

@@ -9,16 +9,20 @@ import com.google.firebase.database.ValueEventListener
 
 class FirebaseHelper(private val context: Context) {
 
-    fun speichernSchueler(schueler: Schueler) {
+    fun speichernSchueler(schueler: Schueler, onResult: (String) -> Unit) {
         val databaseReference = FirebaseDatabase.getInstance().getReference("Schueler")
-        val schuelerId = databaseReference.push().key ?: return // Generiert eine eindeutige ID für jeden Schüler
+        val schuelerId = databaseReference.push().key
+        if (schuelerId == null) {
+            Toast.makeText(context, "Fehler beim Generieren der Schüler-ID.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         databaseReference.child(schuelerId).setValue(schueler)
             .addOnSuccessListener {
-                // Erfolgreich gespeichert
                 Toast.makeText(context, "Schüler erfolgreich gespeichert.", Toast.LENGTH_SHORT).show()
+                onResult(schuelerId) // Callback mit der ID des neu gespeicherten Schülers
             }
             .addOnFailureListener {
-                // Fehler beim Speichern
                 Toast.makeText(context, "Fehler beim Speichern des Schülers.", Toast.LENGTH_SHORT).show()
             }
     }
@@ -54,30 +58,29 @@ class FirebaseHelper(private val context: Context) {
                 Toast.makeText(context, "Fehler beim Aktualisieren der Schülerdaten.", Toast.LENGTH_SHORT).show()
             }
     }
-    fun findeSchuelerByName(name: String) {
+    fun findeSchuelerByName(name: String, onResult: (String?) -> Unit) {
         val databaseReference = FirebaseDatabase.getInstance().getReference("Schueler")
         databaseReference.orderByChild("name").equalTo(name).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    // Schüler mit dem gegebenen Namen gefunden
-                    val schuelerListe = mutableListOf<Schueler>()
-                    snapshot.children.forEach {
-                        val schueler = it.getValue(Schueler::class.java)
-                        schueler?.let { schuelerListe.add(it) }
-                    }
-                    // Verarbeiten Sie die gefundene Schülerliste wie benötigt
-                    Toast.makeText(context, "Schüler gefunden: ${schuelerListe.size}", Toast.LENGTH_SHORT).show()
+                if (snapshot.exists() && snapshot.children.count() == 1) {
+                    val schuelerId = snapshot.children.first().key
+                    Toast.makeText(context, "Schüler gefunden.", Toast.LENGTH_SHORT).show()
+                    onResult(schuelerId) // Callback mit der gefundenen Schüler-ID
                 } else {
-                    // Kein Schüler mit diesem Namen gefunden
                     Toast.makeText(context, "Kein Schüler mit diesem Namen gefunden.", Toast.LENGTH_SHORT).show()
+                    onResult(null)
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Fehler beim Abrufen der Daten
                 Toast.makeText(context, "Fehler beim Suchen des Schülers: ${error.message}", Toast.LENGTH_SHORT).show()
+                onResult(null)
             }
         })
     }
+
+
+
+
 
 }
