@@ -12,6 +12,7 @@ import com.example.ep_2023_2024.ui.theme.EP_2023_2024Theme
 import LoginScreen
 import com.example.ep_2023_2024.model.FirebaseHelper
 import com.google.firebase.FirebaseApp
+import QuizScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,11 +30,7 @@ class MainActivity : ComponentActivity() {
                     val firebaseHelper = FirebaseHelper(this)
 
                     // Rufen Sie LoginScreen auf und übergeben die notwendigen Parameter
-                    LoginScreen(firebaseHelper = firebaseHelper) { schuelerId ->
-                        // Hier würden Sie die Logik implementieren, um zur nächsten Seite zu navigieren,
-                        // z.B. durch Aufrufen von navController.navigate mit der entsprechenden Route
-                        // und der Schüler-ID als Argument
-                    }
+                    QuizScreen()
                 }
             }
         }
