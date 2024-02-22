@@ -17,6 +17,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import InteressenFrageScreen
+import com.example.ep_2023_2024.view.SchuelerTagsScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +42,11 @@ class MainActivity : ComponentActivity() {
                         composable("interessenFrage/{schuelerId}") { backStackEntry ->
                             val schuelerId = backStackEntry.arguments?.getString("schuelerId") ?: return@composable
                             InteressenFrageScreen(firebaseHelper = firebaseHelper, schuelerId = schuelerId, navController = navController)
+                        }
+                        composable("SchuelerTagsScreen/{schuelerId}") { backStackEntry ->
+
+                            val schuelerId = backStackEntry.arguments?.getString("schuelerId") ?: return@composable
+                            SchuelerTagsScreen(firebaseHelper, schuelerId)
                         }
 
                     }

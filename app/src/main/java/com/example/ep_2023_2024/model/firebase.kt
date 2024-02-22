@@ -90,6 +90,26 @@ class FirebaseHelper(private val context: Context) {
                 onResult(false)
             }
     }
+    fun loadStudentTags(schuelerId: String, onSuccess: (List<String>) -> Unit, onError: (Exception) -> Unit) {
+        val ref = FirebaseDatabase.getInstance().getReference("Schueler/$schuelerId/tags")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val tags = snapshot.children.mapNotNull { it.getValue(String::class.java) }
+                if (tags.isNotEmpty()) {
+                    Toast.makeText(context, "Tags erfolgreich geladen.", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(context, "Keine Tags vorhanden.", Toast.LENGTH_LONG).show()
+                }
+                onSuccess(tags)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(context, "Fehler beim Laden der Tags: ${error.message}", Toast.LENGTH_LONG).show()
+                onError(error.toException())
+            }
+        })
+    }
+
 
 
 
