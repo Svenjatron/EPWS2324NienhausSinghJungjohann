@@ -30,7 +30,7 @@ import androidx.compose.ui.Alignment
 @Composable
 fun LoginScreen(
     firebaseHelper: FirebaseHelper,
-    onLoginComplete: (String) -> Unit // Callback-Funktion, um nach der Anmeldung zu navigieren
+    onLoginComplete: (String) -> Unit
 ) {
     // State für den Namen und den Ladezustand
     var name by remember { mutableStateOf("") }
@@ -89,7 +89,7 @@ fun LoginScreen(
     }
 
     if (isLoading) {
-        // Ein einfacher Ladeindikator
+        // Ladebalken
         CircularProgressIndicator()
     }
 }

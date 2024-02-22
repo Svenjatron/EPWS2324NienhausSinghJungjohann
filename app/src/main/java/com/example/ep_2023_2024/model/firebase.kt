@@ -36,7 +36,7 @@ class FirebaseHelper(private val context: Context) {
                     val schueler = it.getValue(Schueler::class.java)
                     schueler?.let { schuelerListe.add(it) }
                 }
-                // Verwenden Sie schuelerListe wie benötigt
+
                 Toast.makeText(context, "Schüler erfolgreich abgerufen.", Toast.LENGTH_SHORT).show()
             }
 
@@ -58,7 +58,7 @@ class FirebaseHelper(private val context: Context) {
                 Toast.makeText(context, "Fehler beim Aktualisieren der Schülerdaten.", Toast.LENGTH_SHORT).show()
             }
     }
-    fun findeSchuelerByName(name: String, onResult: (String?) -> Unit) {
+    fun findeSchuelerByName(name: String, onResult: (String?) -> Unit){
         val databaseReference = FirebaseDatabase.getInstance().getReference("Schueler")
         databaseReference.orderByChild("name").equalTo(name).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -78,6 +78,20 @@ class FirebaseHelper(private val context: Context) {
             }
         })
     }
+    fun addTagsToSchueler(schuelerId: String, tags: List<String>, onResult: (Boolean) -> Unit) {
+        val databaseReference = FirebaseDatabase.getInstance().getReference("Schueler")
+        databaseReference.child(schuelerId).child("tags").setValue(tags)
+            .addOnSuccessListener {
+                Toast.makeText(context, "Tags erfolgreich hinzugefügt.", Toast.LENGTH_SHORT).show()
+                onResult(true)
+            }
+            .addOnFailureListener {
+                Toast.makeText(context, "Fehler beim Hinzufügen der Tags.", Toast.LENGTH_SHORT).show()
+                onResult(false)
+            }
+    }
+
+
 
 
 

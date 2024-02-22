@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.dp
 import java.util.Scanner
 import android.view.View
 import android.os.Bundle
+import android.util.Log
+
 
 
 // Benutzer:innen Klassen //
@@ -222,9 +224,12 @@ open class Teilaufgabe_MC(
         for(i in answerList)  t += i
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = t, style = MaterialTheme.typography.headlineSmall)
+
         }
+        Log.d("Debugging", "Antwortliste nach Benutzeraktion: $answerList")
 
             return answerList
+
 
 
             /*
@@ -241,6 +246,7 @@ open class Teilaufgabe_MC(
         }
         return answer_list
  */
+
 
 
 

@@ -12,11 +12,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.ep_2023_2024.model.FirebaseHelper
+import android.widget.Toast
+import androidx.compose.ui.platform.LocalContext
+import androidx.navigation.NavController
+import com.example.ep_2023_2024.view.HomeButton
+
+
+
 
 @Composable
-fun InteressenFrageScreen() {
-    val context = LocalContext.current
-    val firebaseHelper = FirebaseHelper(context)
+fun InteressenFrageScreen(firebaseHelper: FirebaseHelper, schuelerId: String, navController: NavController) {
     var abnehmenChecked by remember { mutableStateOf(false) }
     var zunehmenChecked by remember { mutableStateOf(false) }
     var sportChecked by remember { mutableStateOf(false) }
@@ -30,28 +35,38 @@ fun InteressenFrageScreen() {
         verticalArrangement = Arrangement.spacedBy(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        FrageMitSwitch("Möchten Sie Informationen zum Thema Gewichtsverlust erhalten?", abnehmenChecked) { abnehmenChecked = it }
-        FrageMitSwitch("Sind Sie daran interessiert, Tipps zum gesunden Zunehmen zu bekommen?", zunehmenChecked) { zunehmenChecked = it }
-        FrageMitSwitch("Interessieren Sie sich für Sport und körperliche Aktivitäten?", sportChecked) { sportChecked = it }
-        FrageMitSwitch("Sind Sie an exklusiven Inhalten zu Ernährung und Gesundheit interessiert?", inhalteChecked) { inhalteChecked = it }
-        FrageMitSwitch("Möchten Sie vielfältige Themen rund um Wohlbefinden und Lifestyle erkunden?", universalChecked) { universalChecked = it }
+        FrageMitSwitch("Möchtest Du gerne ein bisschen abnehmen?", abnehmenChecked) { abnehmenChecked = it }
+        FrageMitSwitch("Würdest Du gerne ein bisschen zunehmen?", zunehmenChecked) { zunehmenChecked = it }
+        FrageMitSwitch("Willst Du was zu Sportlerernährung erfahren?", sportChecked) { sportChecked = it }
+        FrageMitSwitch("Willst Du gerne generell etwas über gesunde Ernährung erfahren? ", inhalteChecked) { inhalteChecked = it }
+        FrageMitSwitch("Möchtest Du vielfältige Themen rund um Wohlbefinden und Lifestyle erkunden?", universalChecked) { universalChecked = it }
 
         Button(
             onClick = {
-                // Hier könnten Sie die Logik implementieren, um die Tags in Firebase zu speichern
-               // if (abnehmenChecked) firebaseHelper.addTagToSchueler(schueler.id, Tag("abnehmen"))
-              //  if (zunehmenChecked) firebaseHelper.addTagToSchueler(schueler.id, Tag("zunehmen"))
-              //  if (sportChecked) firebaseHelper.addTagToSchueler(schueler.id, Tag("sport"))
-              //  if (inhalteChecked) firebaseHelper.addTagToSchueler(schueler.id, Tag("inhalte"))
-              //  if (universalChecked) firebaseHelper.addTagToSchueler(schueler.id, Tag("universal"))
+                val selectedTags = mutableListOf<String>()
+                if (abnehmenChecked) selectedTags.add("abnehmen")
+                if (zunehmenChecked) selectedTags.add("zunehmen")
+                if (sportChecked) selectedTags.add("sport")
+                if (inhalteChecked) selectedTags.add("inhalte")
+                if (universalChecked) selectedTags.add("universal")
+
+                firebaseHelper.addTagsToSchueler(schuelerId, selectedTags) { success ->
+                    if (success) {
+
+                    } else {
+
+                    }
+                }
             },
             modifier = Modifier.align(Alignment.End)
         ) {
             Text("Weiter")
-
         }
     }
+    HomeButton(navController)
+
 }
+
 
 @Composable
 fun FrageMitSwitch(frage: String, checked: Boolean, onCheckedChange: (Boolean) -> Unit) {

@@ -13,28 +13,39 @@ import LoginScreen
 import com.example.ep_2023_2024.model.FirebaseHelper
 import com.google.firebase.FirebaseApp
 import QuizScreen
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import InteressenFrageScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Firebase initialisieren
         FirebaseApp.initializeApp(this)
         setContent {
             EP_2023_2024Theme {
-                // Nutzen Sie Surface, um den Hintergrund der gesamten App festzulegen
+                val navController = rememberNavController()
+                val firebaseHelper = FirebaseHelper(this) // Verwenden Sie den MainActivity-Kontext
+
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // Hier erstellen Sie eine Instanz von FirebaseHelper
-                    val firebaseHelper = FirebaseHelper(this)
+                    NavHost(navController = navController, startDestination = "login") {
+                        composable("login") {
+                            LoginScreen(firebaseHelper = firebaseHelper) { schuelerId ->
+                                // Navigieren Sie zum Interessenfrage-Screen und übergeben Sie die Schüler-ID
+                                navController.navigate("interessenFrage/$schuelerId")
+                            }
+                        }
+                        composable("interessenFrage/{schuelerId}") { backStackEntry ->
+                            val schuelerId = backStackEntry.arguments?.getString("schuelerId") ?: return@composable
+                            InteressenFrageScreen(firebaseHelper = firebaseHelper, schuelerId = schuelerId, navController = navController)
+                        }
 
-                    // Rufen Sie LoginScreen auf und übergeben die notwendigen Parameter
-                    QuizScreen()
+                    }
                 }
             }
         }
     }
 }
-
-
