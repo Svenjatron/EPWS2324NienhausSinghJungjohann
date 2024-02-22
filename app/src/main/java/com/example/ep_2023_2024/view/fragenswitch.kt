@@ -43,6 +43,7 @@ fun InteressenFrageScreen(firebaseHelper: FirebaseHelper, schuelerId: String, na
 
         Button(
             onClick = {
+
                 val selectedTags = mutableListOf<String>()
                 if (abnehmenChecked) selectedTags.add("abnehmen")
                 if (zunehmenChecked) selectedTags.add("zunehmen")
@@ -52,8 +53,10 @@ fun InteressenFrageScreen(firebaseHelper: FirebaseHelper, schuelerId: String, na
 
                 firebaseHelper.addTagsToSchueler(schuelerId, selectedTags) { success ->
                     if (success) {
+                        navController.navigate("SchuelerTagsScreen/$schuelerId")
 
                     } else {
+                        // Fehlerbehandlung
 
                     }
                 }
@@ -62,6 +65,7 @@ fun InteressenFrageScreen(firebaseHelper: FirebaseHelper, schuelerId: String, na
         ) {
             Text("Weiter")
         }
+
     }
     HomeButton(navController)
 
