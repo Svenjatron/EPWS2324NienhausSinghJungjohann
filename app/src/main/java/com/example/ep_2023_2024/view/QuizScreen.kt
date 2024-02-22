@@ -59,18 +59,17 @@ fun QuizScreen() {
     /* Darstellung*/
     @Composable
     fun aufgabeAusführen(aufgabe: Aufgabe, schueler: Schueler) {
+        var selectedAnswers by remember { mutableStateOf(emptySet<String>()) }
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = aufgabe.name, style = MaterialTheme.typography.headlineSmall)
             for (i in aufgabe.teilaufgabenListe) {
                 if (i is Teilaufgabe_MC)    {
                     i.displayTask(context)
-                    val givenAnswers = i.answerTask(context)
-                    val answer = Antwort_MC(schüler1, i, isCorrect = true, isPrivate = true, givenAnswers)
-                    answer.approveAnswer(context)
+                    i.answerTask(onAnswersSelected = { answers -> selectedAnswers = answers}, context)
+                    val answer = Antwort_MC(schüler1, i, isCorrect = true, isPrivate = true, selectedAnswers)
+                    Text(text = selectedAnswers.toString(), Modifier.padding(bottom = 8.dp))
+                    // answer.approveAnswer(context, selectedAnswers)
                 }
-
-                Button(onClick = { }) {
-                    Text(text = "Antwort überprüfen") }
             }
         }
     }

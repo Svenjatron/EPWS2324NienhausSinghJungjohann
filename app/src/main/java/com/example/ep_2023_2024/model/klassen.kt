@@ -21,7 +21,14 @@ import java.util.Scanner
 import android.view.View
 import android.os.Bundle
 import android.util.Log
-
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.rememberDismissState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 
 
 // Benutzer:innen Klassen //
@@ -95,11 +102,11 @@ abstract class Antwort(
     open val subtask: Teilaufgabe? = null,
     var isCorrect: Boolean = false,
     var isPrivate: Boolean = false,
-    open val studentAnswer: List<Any>
+    open val studentAnswer: Set<Any>
 ){
     open fun manualApproveAnswer(){}
     @Composable
-    open fun approveAnswer(context:Context) {}
+    open fun approveAnswer(context:Context, answerList: Set<String>) {}
 }
 
 class Antwort_MC(
@@ -107,53 +114,109 @@ class Antwort_MC(
     override val subtask: Teilaufgabe_MC,
     isCorrect: Boolean,
     isPrivate: Boolean,
-    override val studentAnswer: MutableList<String>
-): Antwort(student, subtask, isCorrect, isPrivate, studentAnswer){
+    override val studentAnswer: Set<String>
+): Antwort(student, subtask, isCorrect, isPrivate, studentAnswer) {
 
     override fun manualApproveAnswer() {
         val s = Scanner(System.`in`)
         println("When you think the evaluation is wrong, please enter 1, else 0.")
-        while (true){
+        while (true) {
             val answer: Int = s.nextInt()
-            if (answer == 1){
+            if (answer == 1) {
                 println("Deine Antwort wird nun als richtig dargestellt.")
                 this.isCorrect = true
                 break
-            }else if (answer == 0) {
+            } else if (answer == 0) {
                 println("Die Evaluation wird nicht geändert.")
                 break
             } else break
         }
     }
 
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    override fun approveAnswer(context: Context) {
+    override fun approveAnswer(context: Context, answerList: Set<String>) {
         /** Check given answer from student and print if correct or not, as well as the correct answer.
          * */
-        /*
-        if (this.subtask.correctAnswer.isEmpty()) {
-            print ("Answer cannot be correct or incorrect.")
+        var showDialog by remember { mutableStateOf(false) }
+        if (subtask.correctAnswer.isEmpty()) {
+            showDialog = true
+            while (showDialog) {
+                AlertDialog(
+                    onDismissRequest = { showDialog = false },
+                    title = { Text("Antworten gesendet") },
+                    text = { Text("Die Antworten könne nweder richtig noch falsch sein. Sie wurden gesperichert.") },
+                    confirmButton = {
+                        Button(onClick = { showDialog = false })
+                        { Text("OK") }
+                    }
+                )
+            }
+        } else if (subtask.correctAnswer == studentAnswer.toMutableList()) {
+            showDialog = true
+            while (showDialog) {
+                AlertDialog(
+                    onDismissRequest = { showDialog = false },
+                    title = { Text("Korrekt!") },
+                    text = { Text("Deine Antworten sind korrekt! Möchtest du deine Antworten mauell überprüfen?") },
+                    confirmButton = {
+                        Button(onClick = { showDialog = false })
+                        { Text("Überprüfen") }
+                    },
+                    dismissButton = {
+                        Button(onClick = {}) { Text("Speichern & schließen") }
+                    }
+                )
+            }
+        } else if (subtask.correctAnswer != studentAnswer.toMutableList()) {
+            showDialog = true
+            while (showDialog) {
+                AlertDialog(
+                    onDismissRequest = { showDialog = false },
+                    title = { Text("Antwort nicht korrekt") },
+                    text = { Text("Deine Antworten sind leider nicht korrekt. Möchtest du deine Antworten mauell überprüfen?") },
+                    confirmButton = {
+                        Button(onClick = { showDialog = false })
+                        { Text("Überprüfen") }
+                    },
+                    dismissButton = {
+                        Button(onClick = {}) { Text("Speichern & schließen") }
+                    }
+                )
+            }
         } else {
-            if (this.subtask.correctAnswer == this.studentAnswer){
-                print("Your answer/s ")
-                for (x in this.studentAnswer)      print(" " + this.subtask.possibleAnswers[x])
-                print(" is/are correct.")
-                this.isCorrect = true
-            }else{
-                print("Your answer/s ")
-                for (x in this.studentAnswer)      print(" " + this.subtask.possibleAnswers[x])
-                print(" is/are wrong.")
-                print("This are the correct answers: ")
-                for (x in this.subtask.correctAnswer) print (" " + this.subtask.possibleAnswers[x] )
-                this.isCorrect = false
-                this.manualApproveAnswer()
+            showDialog = true
+            while (showDialog) {
+
             }
         }
-
-         */
     }
 
+
+    /*
+    if (this.subtask.correctAnswer.isEmpty()) {
+        print ("Answer cannot be correct or incorrect.")
+    } else {
+        if (this.subtask.correctAnswer == this.studentAnswer){
+            print("Your answer/s ")
+            for (x in this.studentAnswer)      print(" " + this.subtask.possibleAnswers[x])
+            print(" is/are correct.")
+            this.isCorrect = true
+        }else{
+            print("Your answer/s ")
+            for (x in this.studentAnswer)      print(" " + this.subtask.possibleAnswers[x])
+            print(" is/are wrong.")
+            print("This are the correct answers: ")
+            for (x in this.subtask.correctAnswer) print (" " + this.subtask.possibleAnswers[x] )
+            this.isCorrect = false
+            this.manualApproveAnswer()
+        }
+    }
+
+     */
 }
+
+
 
 
 
@@ -171,9 +234,8 @@ open class Teilaufgabe(
     @Composable
     open fun displayTask(context: Context) {}
     @Composable
-    open fun answerTask(context:Context): List<Any> {
-        val a : List<Any> = listOf<Any>()
-        return a }
+    open fun answerTask(onAnswersSelected: (Set<String>) -> Unit, context:Context) {
+        val a : List<Any> = listOf<Any>() }
 
     open fun approveAnswer() {}
     open fun manualApproveAnswers() {
@@ -197,42 +259,42 @@ open class Teilaufgabe_MC(
         Text(text = this.question, Modifier.padding(bottom = 8.dp))
 
     }
+
     @Composable
-    override fun answerTask(context: Context): MutableList<String>{
+    override fun answerTask(onAnswersSelected: (Set<String>) -> Unit, context: Context) {
         /**
          * Gibt eine Möglichkeit zur Bearbeitung der vorher angezeigten Aufgabe.
          * */
-
-        val userAnswer = remember { mutableStateOf("") }
-        val answerList = mutableListOf<String>()
-        val simpleCheckBox =
-
+        var selectedAnswers by remember { mutableStateOf(emptySet<String>()) }
+        var userAnswer = remember { mutableStateOf("") }
+        val answerList = remember { mutableStateListOf<String>() }
 
         LazyColumn {
             items(possibleAnswers) { answer ->
                 // Hier wird die Toast-Nachricht ausgegeben, wenn der Button geklickt wird
-                Button(onClick = {Toast.makeText(context, "Antwort ausgewählt: $answer",Toast.LENGTH_SHORT).show()})
-                {Text(text = answer); answerList.add(userAnswer.value)}
+                Button(onClick = {
+                    Toast.makeText(context, "Antwort ausgewählt: $answer", Toast.LENGTH_SHORT)
+                        .show()
+                    if (!selectedAnswers.contains(answer)) {
+                        selectedAnswers = selectedAnswers + answer
+                    }
+                })
+                { Text(text = answer); }
             }
         }
         BasicTextField(
-            value = userAnswer.value,
-            onValueChange = { answerList.add(userAnswer.value)},
+            value = selectedAnswers.joinToString(","),
+            onValueChange = {},
             modifier = Modifier.padding(top = 8.dp, bottom = 8.dp)
         )
-        var t: String = ""
-        for(i in answerList)  t += i
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = t, style = MaterialTheme.typography.headlineSmall)
-
+        Button(onClick = { onAnswersSelected(selectedAnswers) }) {
+            Text(text = "Antwort überprüfen")
         }
-        Log.d("Debugging", "Antwortliste nach Benutzeraktion: $answerList")
 
-            return answerList
-
+    }
 
 
-            /*
+    /*
         val s = Scanner(System.`in`)
         val answer_list = mutableListOf<Int>()
         println("You can give multiple answers. If you're finished, enter 0. For more context, enter 9.")
@@ -248,13 +310,7 @@ open class Teilaufgabe_MC(
  */
 
 
-
-
-
-    }
 }
-
-
 
 
 // Tag Klasse //
