@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             EP_2023_2024Theme {
                 val navController = rememberNavController()
-                val firebaseHelper = FirebaseHelper(this) // Verwenden Sie den MainActivity-Kontext
+                val firebaseHelper = FirebaseHelper(this)
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = navController, startDestination = "login") {
                         composable("login") {
                             LoginScreen(firebaseHelper = firebaseHelper) { schuelerId ->
-                                // Navigieren Sie zum Interessenfrage-Screen und übergeben Sie die Schüler-ID
+
                                 navController.navigate("interessenFrage/$schuelerId")
                             }
                         }
