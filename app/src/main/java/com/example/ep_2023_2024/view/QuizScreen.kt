@@ -50,33 +50,44 @@ fun QuizScreen() {
     val teilaufgabe2_aufg1 = Teilaufgabe_MC("2.", "", "Wie oft geht ihr einkaufen?", antwortListe2, context = "",
         possibleAnswers=mc2Antworten, correctAnswer=correctAnswerList2)
     teilaufgaben_liste.add(teilaufgabe1_aufg1)              // hinzufügen der Teilaufgabe in Teilaufgabenliste für die Aufgabe
-    // teilaufgaben_liste.add(teilaufgabe2_aufg1)
+    teilaufgaben_liste.add(teilaufgabe2_aufg1)
     val aufgabe1 = Aufgabe(name = "Verkaufstricks im Supermarkt", tag = "Supermarkt", teilaufgabenListe = teilaufgaben_liste, suggestedGrade = 7) // Aufgabe erzeugen
 
-    @Composable
-    fun createAnswerMC(teilaufgabe: Teilaufgabe_MC, answerList: Set<String>, isPressed: Boolean){
-        if (isPressed){
-            val answer = Antwort_MC(schüler1, teilaufgabe, isCorrect = true, isPrivate = true, answerList)
-            answer.approveAnswer(context, answerList, true)
-        }
-    }
+
 
     /* Darstellung*/
     @Composable
     fun aufgabeAusführen(aufgabe: Aufgabe, schueler: Schueler) {
+        var displayTaskIndex by remember { mutableStateOf(0) }
         var selectedAnswers by remember { mutableStateOf(emptySet<String>()) }
         var isButtonPressed by remember { mutableStateOf(false) }
+        var isTaskFinished by remember { mutableStateOf(false) }
+
+        @Composable
+        fun createAnswerMC(teilaufgabe: Teilaufgabe_MC, answerList: Set<String>, isPressed: Boolean){
+            if (isPressed){
+                val answer = Antwort_MC(schüler1, teilaufgabe, isCorrect = true, isPrivate = true, answerList)
+                answer.approveAnswer(context, answerList, true, onFinishSubtask  = {        // resettet rememebrte werte und setzt flag für andere auf true
+                    isFinished -> if (isFinished) {displayTaskIndex ++; isTaskFinished = true;
+                    selectedAnswers = emptySet(); isButtonPressed = false}}, isTaskFinished)
+            }
+        }
 
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = aufgabe.name, style = MaterialTheme.typography.headlineSmall)
-            for (i in aufgabe.teilaufgabenListe) {
-                if (i is Teilaufgabe_MC)    {
-                    i.displayTask(context)
-                    i.answerTask(onAnswersSelected = { answers -> selectedAnswers = answers},  {isPressed -> isButtonPressed = isPressed}, context)
-                    createAnswerMC(i, selectedAnswers, isButtonPressed)
+            if (displayTaskIndex < aufgabe.teilaufgabenListe.size) {
+                val currentSubtask = aufgabe.teilaufgabenListe[displayTaskIndex]
+                if (currentSubtask is Teilaufgabe_MC) {
+                    currentSubtask.displayTask()
+                    currentSubtask.answerTask(
+                        onAnswersSelected = { answers -> selectedAnswers = answers },
+                        { isPressed -> isButtonPressed = isPressed },
+                        context, isTaskFinished
+                    )
+                    createAnswerMC(currentSubtask, selectedAnswers, isButtonPressed )
                     Text(text = selectedAnswers.toString(), Modifier.padding(bottom = 8.dp))
-
                 }
+
             }
         }
     }

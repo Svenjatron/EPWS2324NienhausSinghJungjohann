@@ -16,7 +16,10 @@ import androidx.compose.ui.unit.dp
 import java.util.Scanner
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 
 
@@ -95,7 +98,7 @@ abstract class Antwort(
 ){
     open fun manualApproveAnswer(){}
     @Composable
-    open fun approveAnswer(context:Context, answerList: Set<String>, isPressed: Boolean) {}
+    open fun approveAnswer(context:Context, answerList: Set<String>, isPressed: Boolean, onFinishSubtask: (Boolean) -> Unit, isReset: Boolean) {}
 }
 
 class Antwort_MC(
@@ -124,59 +127,78 @@ class Antwort_MC(
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    override fun approveAnswer(context: Context, answerList: Set<String>, isPressed: Boolean) {
+    override fun approveAnswer(context: Context, answerList: Set<String>, isPressed: Boolean, onFinishSubtask: (Boolean) -> Unit, isReset: Boolean) {
         /** Check given answer from student and print if correct or not, as well as the correct answer.
          * */
-        var p by remember { mutableStateOf(isPressed) }
-        var isButtonChanged by remember { mutableStateOf(p) }
+        var show by remember { mutableStateOf(isPressed) }
+        var correctList = remember {mutableStateListOf<String>()}
+        var falseList = remember {mutableStateListOf<String>()}
 
-        if (subtask.correctAnswer.isEmpty()) {
-            if (p) {
+        fun compareAnswers(answerList: Set<String>) {
+            for (answer in subtask.correctAnswer ){
+                if (answerList.contains(answer))   correctList.add(answer)
+                else    falseList.add(answer)
+            }
+        }
+
+        fun evaluateAnswers(correctList: MutableList<String>, falseList: MutableList<String>): Boolean {
+            var isCorrect = false
+            if (falseList.isNotEmpty())     isCorrect = false
+            else if (correctList.size == subtask.correctAnswer.size)    isCorrect = true
+            return isCorrect
+        }
+
+        compareAnswers(answerList)
+        //Wenn Antwort KORREKT
+        if (evaluateAnswers(correctList, falseList)){
+            if (show) {
                 AlertDialog(
-                    onDismissRequest = { p = !p
-                        },
-                    title = { Text("Antworten gesendet") },
-                    text = { Text("Die Antworten können weder richtig noch falsch sein. Sie wurden gesperichert.") },
+                    onDismissRequest = { show = false
+                        onFinishSubtask(true)},
+                    title = { Text("Korrekt") },
+                    text = { Text("Deine Antworten sind korrekt! Möchtest du deine Antworten mauell überprüfen?") },
                     confirmButton = {
-                        Button(onClick = { p = false })
+                        Button(onClick = { show = false })
                         { Text("OK") }
                     }
                 )
             }
-        } else if (subtask.correctAnswer == studentAnswer.toMutableList()) {
-            if (p) {
-                AlertDialog(
-                    onDismissRequest = { p = false },
-                    title = { Text("Korrekt!") },
-                    text = { Text("Deine Antworten sind korrekt! Möchtest du deine Antworten mauell überprüfen?") },
-                    confirmButton = {
-                        Button(onClick = { p = false })
-                        { Text("Überprüfen") }
-                    },
-                    dismissButton = {
-                        Button(onClick = {}) { Text("Speichern & schließen") }
-                    }
-                )
-            }
-        } else if (subtask.correctAnswer != studentAnswer.toMutableList()) {
-            if (p) {
-                AlertDialog(
-                    onDismissRequest = { p = false },
-                    title = { Text("Antwort nicht korrekt") },
-                    text = { Text("Deine Antworten sind leider nicht korrekt. Möchtest du deine Antworten mauell überprüfen?") },
-                    confirmButton = {
-                        Button(onClick = { p = false })
-                        { Text("Überprüfen") }
-                    },
-                    dismissButton = {
-                        Button(onClick = {}) { Text("Speichern & schließen") }
-                    }
-                )
-            }
         } else {
-            p = true
-            if (p) {
-
+            // wenn KEINE korrekte Antwort MÖGL (auch dann ist isCorrect erstmal false, landet also hier!)
+            if (subtask.correctAnswer.isEmpty()){
+                if (show) {
+                    AlertDialog(
+                        onDismissRequest = { show = false
+                            onFinishSubtask(true)},
+                        title = { Text("Super!") },
+                        text = { Text("Es gibt kein richtig oder Falsch.") },
+                        confirmButton = {
+                            Button(onClick = { show = false
+                                onFinishSubtask(true)})  // BEARB
+                            { Text("Okay") }
+                        }
+                    )
+                }
+            }else {
+                if (show) {
+                    AlertDialog(
+                        onDismissRequest = { show = false
+                            onFinishSubtask(true)},
+                        title = { Text("Leider nicht ganz richtig") },
+                        text = { Text("Deine Antworten beinhalten leider Fehler.\n" + "Correct: " +
+                                correctList.joinToString { ", " } + "\nFalse: " + falseList.joinToString { ", " }
+                                + "\nMöchtest du deine Antworten mauell überprüfen?") },
+                        confirmButton = {
+                            Button(onClick = { show = false })  // BEARB
+                            { Text("Überprüfen") }
+                        },
+                        dismissButton = {
+                            Button(onClick = { show = false
+                                onFinishSubtask(true)})
+                            { Text("Speichern & schließen") }
+                        }
+                    )
+                }
             }
         }
     }
@@ -221,9 +243,9 @@ open class Teilaufgabe(
     open val correctAnswer: List<Any> = emptyList()
 ) {
     @Composable
-    open fun displayTask(context: Context) {}
+    open fun displayTask() {}
     @Composable
-    open fun answerTask(onAnswersSelected: (Set<String>) -> Unit, onButtonPressed: (Boolean) -> Unit, context:Context) {
+    open fun answerTask(onAnswersSelected: (Set<String>) -> Unit, onButtonPressed: (Boolean) -> Unit, context:Context, isReset: Boolean) {
         val a : List<Any> = listOf<Any>() }
 
     open fun approveAnswer() {}
@@ -240,7 +262,7 @@ open class Teilaufgabe_MC(
     val possibleAnswers: List<String> = listOf<String>()
 ): Teilaufgabe(title, description, question, answerList, context, correctAnswer) {
     @Composable
-    override fun displayTask(context: Context) {
+    override fun displayTask() {
         /**
          * Zeigt die zu bearbeitende Teilaufgabe an.
          * */
@@ -250,7 +272,7 @@ open class Teilaufgabe_MC(
     }
 
     @Composable
-    override fun answerTask(onAnswersSelected: (Set<String>) -> Unit, onButtonPressed: (Boolean) -> Unit, context: Context) {
+    override fun answerTask(onAnswersSelected: (Set<String>) -> Unit, onButtonPressed: (Boolean) -> Unit, context: Context, isReset: Boolean) {
         /**
          * Gibt eine Möglichkeit zur Bearbeitung der vorher angezeigten Aufgabe.
          * */
