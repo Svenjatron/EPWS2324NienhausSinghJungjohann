@@ -53,22 +53,29 @@ fun QuizScreen() {
     // teilaufgaben_liste.add(teilaufgabe2_aufg1)
     val aufgabe1 = Aufgabe(name = "Verkaufstricks im Supermarkt", tag = "Supermarkt", teilaufgabenListe = teilaufgaben_liste, suggestedGrade = 7) // Aufgabe erzeugen
 
-
-
+    @Composable
+    fun createAnswerMC(teilaufgabe: Teilaufgabe_MC, answerList: Set<String>, isPressed: Boolean){
+        if (isPressed){
+            val answer = Antwort_MC(schüler1, teilaufgabe, isCorrect = true, isPrivate = true, answerList)
+            answer.approveAnswer(context, answerList, true)
+        }
+    }
 
     /* Darstellung*/
     @Composable
     fun aufgabeAusführen(aufgabe: Aufgabe, schueler: Schueler) {
         var selectedAnswers by remember { mutableStateOf(emptySet<String>()) }
+        var isButtonPressed by remember { mutableStateOf(false) }
+
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = aufgabe.name, style = MaterialTheme.typography.headlineSmall)
             for (i in aufgabe.teilaufgabenListe) {
                 if (i is Teilaufgabe_MC)    {
                     i.displayTask(context)
-                    i.answerTask(onAnswersSelected = { answers -> selectedAnswers = answers}, context)
-                    val answer = Antwort_MC(schüler1, i, isCorrect = true, isPrivate = true, selectedAnswers)
+                    i.answerTask(onAnswersSelected = { answers -> selectedAnswers = answers},  {isPressed -> isButtonPressed = isPressed}, context)
+                    createAnswerMC(i, selectedAnswers, isButtonPressed)
                     Text(text = selectedAnswers.toString(), Modifier.padding(bottom = 8.dp))
-                    // answer.approveAnswer(context, selectedAnswers)
+
                 }
             }
         }

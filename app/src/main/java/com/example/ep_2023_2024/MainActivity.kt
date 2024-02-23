@@ -24,6 +24,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(this)
         setContent {
+            QuizScreen()
+            /*
             EP_2023_2024Theme {
                 val navController = rememberNavController()
                 val firebaseHelper = FirebaseHelper(this)
@@ -51,7 +53,7 @@ class MainActivity : ComponentActivity() {
 
                     }
                 }
-            }
+            }*/
         }
     }
 }

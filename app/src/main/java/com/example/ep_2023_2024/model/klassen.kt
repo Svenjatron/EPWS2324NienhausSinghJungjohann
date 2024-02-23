@@ -1,16 +1,12 @@
 package com.example.ep_2023_2024.model
 
-import android.R
 import android.content.Context
-import android.widget.CheckBox
 import android.widget.Toast
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -18,17 +14,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import java.util.Scanner
-import android.view.View
-import android.os.Bundle
-import android.util.Log
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.rememberDismissState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 
 
 // Benutzer:innen Klassen //
@@ -106,7 +95,7 @@ abstract class Antwort(
 ){
     open fun manualApproveAnswer(){}
     @Composable
-    open fun approveAnswer(context:Context, answerList: Set<String>) {}
+    open fun approveAnswer(context:Context, answerList: Set<String>, isPressed: Boolean) {}
 }
 
 class Antwort_MC(
@@ -135,32 +124,33 @@ class Antwort_MC(
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    override fun approveAnswer(context: Context, answerList: Set<String>) {
+    override fun approveAnswer(context: Context, answerList: Set<String>, isPressed: Boolean) {
         /** Check given answer from student and print if correct or not, as well as the correct answer.
          * */
-        var showDialog by remember { mutableStateOf(false) }
+        var p by remember { mutableStateOf(isPressed) }
+        var isButtonChanged by remember { mutableStateOf(p) }
+
         if (subtask.correctAnswer.isEmpty()) {
-            showDialog = true
-            while (showDialog) {
+            if (p) {
                 AlertDialog(
-                    onDismissRequest = { showDialog = false },
+                    onDismissRequest = { p = !p
+                        },
                     title = { Text("Antworten gesendet") },
-                    text = { Text("Die Antworten könne nweder richtig noch falsch sein. Sie wurden gesperichert.") },
+                    text = { Text("Die Antworten können weder richtig noch falsch sein. Sie wurden gesperichert.") },
                     confirmButton = {
-                        Button(onClick = { showDialog = false })
+                        Button(onClick = { p = false })
                         { Text("OK") }
                     }
                 )
             }
         } else if (subtask.correctAnswer == studentAnswer.toMutableList()) {
-            showDialog = true
-            while (showDialog) {
+            if (p) {
                 AlertDialog(
-                    onDismissRequest = { showDialog = false },
+                    onDismissRequest = { p = false },
                     title = { Text("Korrekt!") },
                     text = { Text("Deine Antworten sind korrekt! Möchtest du deine Antworten mauell überprüfen?") },
                     confirmButton = {
-                        Button(onClick = { showDialog = false })
+                        Button(onClick = { p = false })
                         { Text("Überprüfen") }
                     },
                     dismissButton = {
@@ -169,14 +159,13 @@ class Antwort_MC(
                 )
             }
         } else if (subtask.correctAnswer != studentAnswer.toMutableList()) {
-            showDialog = true
-            while (showDialog) {
+            if (p) {
                 AlertDialog(
-                    onDismissRequest = { showDialog = false },
+                    onDismissRequest = { p = false },
                     title = { Text("Antwort nicht korrekt") },
                     text = { Text("Deine Antworten sind leider nicht korrekt. Möchtest du deine Antworten mauell überprüfen?") },
                     confirmButton = {
-                        Button(onClick = { showDialog = false })
+                        Button(onClick = { p = false })
                         { Text("Überprüfen") }
                     },
                     dismissButton = {
@@ -185,8 +174,8 @@ class Antwort_MC(
                 )
             }
         } else {
-            showDialog = true
-            while (showDialog) {
+            p = true
+            if (p) {
 
             }
         }
@@ -234,7 +223,7 @@ open class Teilaufgabe(
     @Composable
     open fun displayTask(context: Context) {}
     @Composable
-    open fun answerTask(onAnswersSelected: (Set<String>) -> Unit, context:Context) {
+    open fun answerTask(onAnswersSelected: (Set<String>) -> Unit, onButtonPressed: (Boolean) -> Unit, context:Context) {
         val a : List<Any> = listOf<Any>() }
 
     open fun approveAnswer() {}
@@ -261,13 +250,12 @@ open class Teilaufgabe_MC(
     }
 
     @Composable
-    override fun answerTask(onAnswersSelected: (Set<String>) -> Unit, context: Context) {
+    override fun answerTask(onAnswersSelected: (Set<String>) -> Unit, onButtonPressed: (Boolean) -> Unit, context: Context) {
         /**
          * Gibt eine Möglichkeit zur Bearbeitung der vorher angezeigten Aufgabe.
          * */
         var selectedAnswers by remember { mutableStateOf(emptySet<String>()) }
-        var userAnswer = remember { mutableStateOf("") }
-        val answerList = remember { mutableStateListOf<String>() }
+        var isPressed by remember { mutableStateOf(false) }
 
         LazyColumn {
             items(possibleAnswers) { answer ->
@@ -287,7 +275,9 @@ open class Teilaufgabe_MC(
             onValueChange = {},
             modifier = Modifier.padding(top = 8.dp, bottom = 8.dp)
         )
-        Button(onClick = { onAnswersSelected(selectedAnswers) }) {
+        Button(onClick = { onAnswersSelected(selectedAnswers)
+        isPressed = !isPressed
+        onButtonPressed(isPressed)}) {
             Text(text = "Antwort überprüfen")
         }
 
