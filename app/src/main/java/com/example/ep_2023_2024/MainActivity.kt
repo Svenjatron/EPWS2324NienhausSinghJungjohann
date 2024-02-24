@@ -12,20 +12,20 @@ import com.example.ep_2023_2024.ui.theme.EP_2023_2024Theme
 import LoginScreen
 import com.example.ep_2023_2024.model.FirebaseHelper
 import com.google.firebase.FirebaseApp
-import QuizScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import InteressenFrageScreen
-import com.example.ep_2023_2024.view.SchuelerTagsScreen
+import QuizScreen
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(this)
         setContent {
-            QuizScreen()
-            /*
+
+
             EP_2023_2024Theme {
                 val navController = rememberNavController()
                 val firebaseHelper = FirebaseHelper(this)
@@ -45,15 +45,15 @@ class MainActivity : ComponentActivity() {
                             val schuelerId = backStackEntry.arguments?.getString("schuelerId") ?: return@composable
                             InteressenFrageScreen(firebaseHelper = firebaseHelper, schuelerId = schuelerId, navController = navController)
                         }
-                        composable("SchuelerTagsScreen/{schuelerId}") { backStackEntry ->
+                        composable("QuizScreen/{schuelerId}") { backStackEntry ->
 
                             val schuelerId = backStackEntry.arguments?.getString("schuelerId") ?: return@composable
-                            SchuelerTagsScreen(firebaseHelper, schuelerId)
+                            QuizScreen(firebaseHelper, schuelerId)
                         }
 
                     }
                 }
-            }*/
+            }
         }
     }
 }

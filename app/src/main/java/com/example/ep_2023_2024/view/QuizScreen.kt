@@ -1,13 +1,28 @@
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+import com.example.ep_2023_2024.model.*
+import android.util.Log
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import android.content.Context
+
+
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.foundation.lazy.LazyColumn
@@ -23,83 +38,135 @@ import com.example.ep_2023_2024.model.Teilaufgabe_MC
 import com.example.ep_2023_2024.model.Aufgabe
 import com.example.ep_2023_2024.model.Antwort_MC
 
-
 @Composable
-fun QuizScreen() {
-    /* Objekterstellung */
+fun QuizScreen(firebaseHelper: FirebaseHelper, schuelerId: String) {
     val context = LocalContext.current
-    val klasse7a = object : Schulklasse(7, 'a') {}    // Schulklasse Objekt
-    val given_answers_list =mutableListOf<Antwort>()               // Liste mit allen jemals gegebenen Antworten des Schülers (Work in Progress!)
-    val schüler1 = Schueler("schüler1@abc.de", "passwort", "Jungjohann", "Caro",    // Schüler erzeugen
-        klasse7a, true, "Supermarkt")
-    val teilaufgaben_liste =mutableListOf<Teilaufgabe>()       // Liste mit Teilaufgaben einer Aufgabe
-    val antwortListe1 =mutableListOf<Antwort>()                // Liste mit allen jemals gegebenen Antworten der Schüler (Work in Progress!)
-    val antwortListe2 = mutableListOf<Antwort>()                // Liste mit allen jemals gegebenen Antworten der Schüler (Work in Progress!)
-    val mc1Antworten: List<String> = listOf("Supermarkt", "Discounter", "Wochenmarkt",          // mögliche Antworten im Multiple Choice
-        "direkt beim Bauern", "Bioladen", "über das Internet")
-    val mc2Antworten: List<String> = listOf("2-3 Mal pro Woche", "einmal pro Woche", "täglich", "alle 2 Wochen")
-    val a1Ta1C1 =
-        "Es gibt verschiedene Möglichkeiten, Lebensmittel einzukaufen. Der Supermarkt ist dabei wohl die gängigste, doch auch das Internet wird immer häufiger genutzt." +
-                "Jedoch haben auch andere Optionen, wie zum Beispiel Bio- oder Wochenmärkte ihre Vorteile. Discounter haben im Vergleich zu Supermärkten ein kleineres Sortiment, " +
-                "können dadurch günstigere Angebote liefern. Bio- und Wochenmärkte sowie Bauernmärkte liefern vor allem Obst und Gemüse am frischsten, haben jedoch eigene Preise." +
-                "Weiterführende Links: https://de.wikipedia.org/wiki/Discounter https://de.wikipedia.org/wiki/Wochenmarkt https://de.wikipedia.org/wiki/Bioladen"
-    val correctAnswerList1 = mutableListOf<String>("Supermarkt", "Wochenmarkt")
-    val correctAnswerList2 = mutableListOf<String>()
-    val teilaufgabe1_aufg1 = Teilaufgabe_MC("1.","","Wo kaufst du/ihr am häufigsten Lebensmittel ein?",
-        answerList = antwortListe1, context = a1Ta1C1, possibleAnswers = mc1Antworten, correctAnswer = correctAnswerList1)           // Teilaufgabe
-    val teilaufgabe2_aufg1 = Teilaufgabe_MC("2.", "", "Wie oft geht ihr einkaufen?", antwortListe2, context = "",
-        possibleAnswers=mc2Antworten, correctAnswer=correctAnswerList2)
-    teilaufgaben_liste.add(teilaufgabe1_aufg1)              // hinzufügen der Teilaufgabe in Teilaufgabenliste für die Aufgabe
-    teilaufgaben_liste.add(teilaufgabe2_aufg1)
-    val aufgabe1 = Aufgabe(name = "Verkaufstricks im Supermarkt", tag = "Supermarkt", teilaufgabenListe = teilaufgaben_liste, suggestedGrade = 7) // Aufgabe erzeugen
+    val schuelerTags = remember { mutableStateOf<List<String>>(listOf()) }
+    val aufgabenListe = remember { mutableStateOf<List<Aufgabe>>(listOf()) }
+    val fehlerNachricht = remember { mutableStateOf<String?>(null) }
+    var displayTaskIndex by remember { mutableStateOf(0) }
+    var selectedAnswers = remember { mutableStateOf<Set<String>>(emptySet()) }
+    val isButtonPressed = remember { mutableStateOf(false) }
+    val isTaskFinished = remember { mutableStateOf(false) }
 
 
+    LaunchedEffect(schuelerId) {
+        Log.d("QuizScreen", "Lade Schüler-Tags für Schüler-ID: $schuelerId")
+        firebaseHelper.loadStudentTags(schuelerId, onSuccess = { tags ->
+            Log.d("QuizScreen", "Schüler-Tags geladen: $tags")
+            schuelerTags.value = tags
+            // Aufruf von loadAllTasks statt loadTasksByTags
+            firebaseHelper.loadAllTasks(onSuccess = { tasks ->
+                // Anwendung des Tagfilters direkt hier, nachdem alle Aufgaben geladen wurden
+                val gefilterteAufgaben = getAufgabenByTags(tags, tasks)
+                aufgabenListe.value = gefilterteAufgaben
+                Log.d("QuizScreen", "Aufgaben geladen und gefiltert: ${gefilterteAufgaben.map { it.name }}")
+            }, onError = { exception ->
+                Log.e("QuizScreen", "Fehler beim Laden aller Aufgaben", exception)
+                fehlerNachricht.value = "Fehler beim Laden aller Aufgaben: ${exception.message}"
+            })
+        }, onError = { exception ->
+            Log.e("QuizScreen", "Fehler beim Laden der Schüler-Tags", exception)
+            fehlerNachricht.value = "Fehler beim Laden der Schüler-Tags: ${exception.message}"
+        })
+    }
 
-    /* Darstellung*/
-    @Composable
-    fun aufgabeAusführen(aufgabe: Aufgabe, schueler: Schueler) {
-        var displayTaskIndex by remember { mutableStateOf(0) }
-        var selectedAnswers by remember { mutableStateOf(emptySet<String>()) }
-        var isButtonPressed by remember { mutableStateOf(false) }
-        var isTaskFinished by remember { mutableStateOf(false) }
-
-        @Composable
-        fun createAnswerMC(teilaufgabe: Teilaufgabe_MC, answerList: Set<String>, isPressed: Boolean){
-            // Soll erst passieren wenn eval-Button gedrückt wurde
-            if (isPressed){
-                val answer = Antwort_MC(schüler1, teilaufgabe, isCorrect = true, isPrivate = true, answerList)
-                answer.approveAnswer(answerList, true, onFinishSubtask  = {        // resettet rememebrte werte und setzt flag für andere auf true
-                    isFinished -> if (isFinished) {displayTaskIndex ++; isTaskFinished = true;
-                    selectedAnswers = emptySet(); isButtonPressed = false}}, isTaskFinished)
-            }
-        }
-
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = aufgabe.name, style = MaterialTheme.typography.headlineSmall)
-            if (displayTaskIndex < aufgabe.teilaufgabenListe.size) {
+    AufgabenListeUI(aufgabenListe = aufgabenListe.value, context = context, schueler = Schueler(
+        email = "",
+        passwort = "",
+        name = "",
+        vorname = "",
+        schulklasse = null,
+        isEmailVerified = false,
+        persönlichesInteresse = "",
+        interessenListe = listOf()
+    ), displayTaskIndex = displayTaskIndex, selectedAnswers = selectedAnswers, isButtonPressed = isButtonPressed, isTaskFinished = isTaskFinished)
+}
+@Composable
+fun AufgabenListeUI(
+    aufgabenListe: List<Aufgabe>,
+    context: Context,
+    schueler: Schueler,
+    displayTaskIndex: Int,
+    selectedAnswers: MutableState<Set<String>>,
+    isButtonPressed: MutableState<Boolean>,
+    isTaskFinished: MutableState<Boolean>
+) {
+    Column(modifier = Modifier.padding(16.dp)) {
+        if (displayTaskIndex < aufgabenListe.size) {
+            val aufgabe = aufgabenListe[displayTaskIndex]
+            Text(text = aufgabe.name, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(bottom = 8.dp))
+            // Überprüfen, ob es Teilaufgaben gibt und ob die displayTaskIndex innerhalb des Bereichs liegt
+            if (aufgabe.teilaufgabenListe.isNotEmpty() && displayTaskIndex < aufgabe.teilaufgabenListe.size) {
                 val currentSubtask = aufgabe.teilaufgabenListe[displayTaskIndex]
                 if (currentSubtask is Teilaufgabe_MC) {
-                    currentSubtask.displayTask()
-                    currentSubtask.answerTask(
-                        onAnswersSelected = { answers -> selectedAnswers = answers },
-                        { isPressed -> isButtonPressed = isPressed },
-                        context, isTaskFinished
+                    TeilaufgabeMCUI(
+                        teilaufgabe = currentSubtask,
+                        context = context,
+                        initialSelectedAnswers = selectedAnswers, // Übergebe MutableState direkt
+                        onAnswerSelected = { answers -> selectedAnswers.value = answers },
+                        isPressed = isButtonPressed // Übergebe MutableState direkt
                     )
-                    createAnswerMC(currentSubtask, selectedAnswers, isButtonPressed )
-
                 }
+            }
+        }
+    }
+}
 
+@Composable
+fun TeilaufgabeMCUI(
+    teilaufgabe: Teilaufgabe_MC,
+    context: Context,
+    initialSelectedAnswers: MutableState<Set<String>>,
+    onAnswerSelected: (Set<String>) -> Unit,
+    isPressed: MutableState<Boolean>
+) {
+    // Zeige den Titel und die Frage der Teilaufgabe an
+    Text(text = teilaufgabe.title, style = MaterialTheme.typography.headlineSmall)
+    Text(text = teilaufgabe.question, style = MaterialTheme.typography.bodyMedium)
+
+    // Liste der möglichen Antworten
+    LazyColumn {
+        items(teilaufgabe.possibleAnswers) { answer ->
+            Button(onClick = {
+                Toast.makeText(context, "Antwort ausgewählt: $answer", Toast.LENGTH_SHORT).show()
+                val newSelectedAnswers = initialSelectedAnswers.value.toMutableSet()
+                if (newSelectedAnswers.contains(answer)) {
+                    newSelectedAnswers.remove(answer)
+                } else {
+                    newSelectedAnswers.add(answer)
+                }
+                initialSelectedAnswers.value = newSelectedAnswers
+                onAnswerSelected(initialSelectedAnswers.value)
+            }) {
+                Text(text = answer)
             }
         }
     }
 
-    aufgabeAusführen(aufgabe1, schüler1)
+    // Button zum Überprüfen der Antworten
+    Button(onClick = { isPressed.value = true }) {
+        Text("Antworten überprüfen")
+    }
 
+    // Wenn der Button gedrückt wurde, führe die Antwortprüfung durch
+    if (isPressed.value) {
+        val antwortMC = Antwort_MC(
+            student = Schueler(), // Hier solltest du das tatsächliche Schülerobjekt basierend auf der ID setzen
+            subtask = teilaufgabe,
+            isCorrect = false, // Der Anfangswert, wird innerhalb von approveAnswer aktualisiert
+            isPrivate = false, // Setze entsprechend deinen Anforderungen
+            studentAnswer = initialSelectedAnswers.value // Die ausgewählten Antworten
+        )
 
-}
+        // Diese Funktion wird aufgerufen, wenn die Teilaufgabe abgeschlossen ist
+        val onFinishSubtask: (Boolean) -> Unit = { finished ->
+            if (finished) {
+                isPressed.value = false // Setze isPressed zurück auf false, um den Dialog zu schließen
+            }
+        }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    QuizScreen()
+        // Zeige den Dialog basierend auf dem Ergebnis der Antwortüberprüfung
+        antwortMC.approveAnswer(initialSelectedAnswers.value, isPressed.value, onFinishSubtask, isReset = false)
+    }
 }

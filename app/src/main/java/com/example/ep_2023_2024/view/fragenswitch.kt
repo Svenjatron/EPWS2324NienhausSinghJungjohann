@@ -53,7 +53,7 @@ fun InteressenFrageScreen(firebaseHelper: FirebaseHelper, schuelerId: String, na
 
                 firebaseHelper.addTagsToSchueler(schuelerId, selectedTags) { success ->
                     if (success) {
-                        navController.navigate("SchuelerTagsScreen/$schuelerId")
+                        navController.navigate("QuizScreen/$schuelerId")
 
                     } else {
                         // Fehlerbehandlung

@@ -1,6 +1,7 @@
 package com.example.ep_2023_2024.model
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -109,6 +110,67 @@ class FirebaseHelper(private val context: Context) {
             }
         })
     }
+
+    fun loadTasksByTags(tags: List<String>, onSuccess: (List<Aufgabe>) -> Unit, onError: (Exception) -> Unit) {
+        val ref = FirebaseDatabase.getInstance().getReference("Aufgaben")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val aufgabenListe = mutableListOf<Aufgabe>()
+                snapshot.children.forEach { taskSnapshot ->
+                    val aufgabe = taskSnapshot.getValue(Aufgabe::class.java)
+                    aufgabe?.let {
+                        // Überprüfen Sie, ob die Aufgabe einen der Tags des Schülers hat.
+                        if (tags.contains(it.tag)) {
+                            aufgabenListe.add(it)
+                        }
+                    }
+                }
+                if (aufgabenListe.isNotEmpty()) {
+                    Toast.makeText(context, "Aufgaben erfolgreich geladen.", Toast.LENGTH_LONG).show()
+                    onSuccess(aufgabenListe)
+                } else {
+                    Toast.makeText(context, "Keine Aufgaben für die angegebenen Tags gefunden.", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(context, "Fehler beim Laden der Aufgaben: ${error.message}", Toast.LENGTH_LONG).show()
+                onError(error.toException())
+            }
+        })
+    }
+    fun loadAllTasks(onSuccess: (List<Aufgabe>) -> Unit, onError: (Exception) -> Unit) {
+        val ref = FirebaseDatabase.getInstance().getReference("aufgaben")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val aufgabenListe = mutableListOf<Aufgabe>()
+                snapshot.children.forEach { taskSnapshot ->
+                    val aufgabe = taskSnapshot.getValue(Aufgabe::class.java)?.apply {
+                        // Hier wird versucht, die Kinder des "teilaufgabenListe"-Knotens als Liste zu holen
+                        val teilaufgabenListe = taskSnapshot.child("teilaufgabenListe").children.mapNotNull {
+                            it.getValue(Teilaufgabe_MC::class.java)
+                        }
+                        this.teilaufgabenListe = teilaufgabenListe
+                    }
+                    aufgabe?.let { aufgabenListe.add(it) }
+                }
+                if (aufgabenListe.isNotEmpty()) {
+                    onSuccess(aufgabenListe)
+                } else {
+                    onError(Exception("Keine Aufgaben gefunden"))
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                onError(error.toException())
+            }
+        })
+    }
+
+
+
+
+
 
 
 
