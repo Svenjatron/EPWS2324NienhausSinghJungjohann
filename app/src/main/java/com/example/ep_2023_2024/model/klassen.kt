@@ -1,5 +1,6 @@
 package com.example.ep_2023_2024.model
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.layout.padding
@@ -102,6 +103,7 @@ abstract class Antwort(
     open fun manualApproveAnswer(){}
     @Composable
     open fun approveAnswer(answerList: Set<String>, isPressed: Boolean, onFinishSubtask: (Boolean) -> Unit, isReset: Boolean) {}
+    open fun evaluateAnswers(answerList: Set<String>, subtask: Teilaufgabe_MC): Boolean{return true}
 }
 
 class Antwort_MC(
@@ -128,50 +130,16 @@ class Antwort_MC(
         }
     }
 
+    @SuppressLint("UnrememberedMutableState")
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun approveAnswer(answerList: Set<String>, isPressed: Boolean, onFinishSubtask: (Boolean) -> Unit, isReset: Boolean) {
         /** Check given answer from student and print if correct or not, as well as the correct answer.
          * */
         var show by remember { mutableStateOf(isPressed) }
-        var correctList by remember { mutableStateOf(listOf("")) }
-        var falseList by remember { mutableStateOf(listOf("")) }
 
-
-        @Composable
-        fun compareAnswers(answerList: Set<String>) {
-            var l1 = mutableListOf<String>()
-            var l2 = mutableListOf<String>()
-            for (answer in subtask.correctAnswer ){
-                if (answerList.contains(answer)) {
-                    l1.add(answer)
-                }
-                else{l2.add(answer)
-               }
-            }
-            correctList = l1
-            falseList = l2
-        }
-
-
-        fun evaluateAnswers(correctList: List<String>, falseList: List<String>): Boolean {
-            var isCorrect = false
-            if (falseList.isNotEmpty())     isCorrect = false
-            else if (correctList.size == subtask.correctAnswer.size)    isCorrect = true
-            return isCorrect
-        }
-
-        @Composable
-        fun mutableStateListToString(list: SnapshotStateList<String>): String{
-            return list.joinToString(", ")
-
-        }
-
-        compareAnswers(answerList)
-        Text(text = "AFTER COMP: " + falseList.joinToString { ", " })
-        
         //Wenn Antwort KORREKT
-        if (evaluateAnswers(correctList, falseList)){
+         if (evaluateAnswers(answerList, subtask)){
             if (show) {
                 AlertDialog(
                     onDismissRequest = { show = false
@@ -200,36 +168,39 @@ class Antwort_MC(
                         }
                     )
                 }
-            }else {
+            }else { //wenn FALSCH
                 if (show) {
                     AlertDialog(
                         onDismissRequest = { show = false
                             onFinishSubtask(true)},
                         title = { Text("Leider nicht ganz richtig") },
-                        text = { Text("Deine Antworten beinhalten leider Fehler.\n" + "Correct: " +
-                                correctList.joinToString { ", " } + "\nFalse: " + falseList.joinToString { ", " }
-                                + "\nMöchtest du deine Antworten mauell überprüfen?") },
+                        text = { Text("Deine Antworten beinhalten leider Fehler.\n")},
                         confirmButton = {
-                            Button(onClick = { show = false })  // BEARB
-                            { Text("Überprüfen") }
-                        },
-                        dismissButton = {
                             Button(onClick = { show = false
-                                onFinishSubtask(true)})
+                                onFinishSubtask(true)})  // BEARB
                             { Text("Speichern & schließen") }
-                        }
+                        },
                     )
                 }
             }
         }
     }
+
+    override fun evaluateAnswers(answerList: Set<String>, subtask: Teilaufgabe_MC): Boolean {
+        var correctList = mutableListOf<String>()
+        var falseList = mutableListOf<String>()
+        for (answer in answerList ){
+            if (subtask.correctAnswer.contains(answer)) {
+                correctList.add(answer)
+            }
+            else    falseList.add(answer)
+        }
+        var isCorrect = false
+        if (falseList.isNotEmpty())     isCorrect = false
+        else if (correctList.size == subtask.correctAnswer.size)    isCorrect = true
+        return isCorrect
+    }
 }
-
-
-
-
-
-
 
 
 open class Teilaufgabe(
@@ -294,7 +265,7 @@ open class Teilaufgabe_MC(
                 { Text(text = answer); }
             }
         }
-        BasicTextField(
+         BasicTextField(
             value = selectedAnswers.joinToString(","),
             onValueChange = {},
             modifier = Modifier.padding(top = 8.dp, bottom = 8.dp)
@@ -304,7 +275,6 @@ open class Teilaufgabe_MC(
         onButtonPressed(isPressed)}) {
             Text(text = "Antwort überprüfen")
         }
-
     }
 
 

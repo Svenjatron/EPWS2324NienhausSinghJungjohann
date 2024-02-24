@@ -85,7 +85,6 @@ fun QuizScreen() {
                         { isPressed -> isButtonPressed = isPressed },
                         context, isTaskFinished
                     )
-                    Text(text = selectedAnswers.toString(), Modifier.padding(bottom = 8.dp))
                     createAnswerMC(currentSubtask, selectedAnswers, isButtonPressed )
 
                 }
