@@ -65,9 +65,10 @@ fun QuizScreen() {
 
         @Composable
         fun createAnswerMC(teilaufgabe: Teilaufgabe_MC, answerList: Set<String>, isPressed: Boolean){
+            // Soll erst passieren wenn eval-Button gedrückt wurde
             if (isPressed){
                 val answer = Antwort_MC(schüler1, teilaufgabe, isCorrect = true, isPrivate = true, answerList)
-                answer.approveAnswer(context, answerList, true, onFinishSubtask  = {        // resettet rememebrte werte und setzt flag für andere auf true
+                answer.approveAnswer(answerList, true, onFinishSubtask  = {        // resettet rememebrte werte und setzt flag für andere auf true
                     isFinished -> if (isFinished) {displayTaskIndex ++; isTaskFinished = true;
                     selectedAnswers = emptySet(); isButtonPressed = false}}, isTaskFinished)
             }
@@ -84,8 +85,9 @@ fun QuizScreen() {
                         { isPressed -> isButtonPressed = isPressed },
                         context, isTaskFinished
                     )
-                    createAnswerMC(currentSubtask, selectedAnswers, isButtonPressed )
                     Text(text = selectedAnswers.toString(), Modifier.padding(bottom = 8.dp))
+                    createAnswerMC(currentSubtask, selectedAnswers, isButtonPressed )
+
                 }
 
             }

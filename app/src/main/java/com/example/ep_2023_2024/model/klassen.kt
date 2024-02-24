@@ -17,10 +17,13 @@ import java.util.Scanner
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshots.SnapshotStateList
+import kotlinx.coroutines.delay
 
 
 // Benutzer:innen Klassen //
@@ -98,7 +101,7 @@ abstract class Antwort(
 ){
     open fun manualApproveAnswer(){}
     @Composable
-    open fun approveAnswer(context:Context, answerList: Set<String>, isPressed: Boolean, onFinishSubtask: (Boolean) -> Unit, isReset: Boolean) {}
+    open fun approveAnswer(answerList: Set<String>, isPressed: Boolean, onFinishSubtask: (Boolean) -> Unit, isReset: Boolean) {}
 }
 
 class Antwort_MC(
@@ -127,28 +130,46 @@ class Antwort_MC(
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    override fun approveAnswer(context: Context, answerList: Set<String>, isPressed: Boolean, onFinishSubtask: (Boolean) -> Unit, isReset: Boolean) {
+    override fun approveAnswer(answerList: Set<String>, isPressed: Boolean, onFinishSubtask: (Boolean) -> Unit, isReset: Boolean) {
         /** Check given answer from student and print if correct or not, as well as the correct answer.
          * */
         var show by remember { mutableStateOf(isPressed) }
-        var correctList = remember {mutableStateListOf<String>()}
-        var falseList = remember {mutableStateListOf<String>()}
+        var correctList by remember { mutableStateOf(listOf("")) }
+        var falseList by remember { mutableStateOf(listOf("")) }
 
+
+        @Composable
         fun compareAnswers(answerList: Set<String>) {
+            var l1 = mutableListOf<String>()
+            var l2 = mutableListOf<String>()
             for (answer in subtask.correctAnswer ){
-                if (answerList.contains(answer))   correctList.add(answer)
-                else    falseList.add(answer)
+                if (answerList.contains(answer)) {
+                    l1.add(answer)
+                }
+                else{l2.add(answer)
+               }
             }
+            correctList = l1
+            falseList = l2
         }
 
-        fun evaluateAnswers(correctList: MutableList<String>, falseList: MutableList<String>): Boolean {
+
+        fun evaluateAnswers(correctList: List<String>, falseList: List<String>): Boolean {
             var isCorrect = false
             if (falseList.isNotEmpty())     isCorrect = false
             else if (correctList.size == subtask.correctAnswer.size)    isCorrect = true
             return isCorrect
         }
 
+        @Composable
+        fun mutableStateListToString(list: SnapshotStateList<String>): String{
+            return list.joinToString(", ")
+
+        }
+
         compareAnswers(answerList)
+        Text(text = "AFTER COMP: " + falseList.joinToString { ", " })
+        
         //Wenn Antwort KORREKT
         if (evaluateAnswers(correctList, falseList)){
             if (show) {
@@ -202,29 +223,6 @@ class Antwort_MC(
             }
         }
     }
-
-
-    /*
-    if (this.subtask.correctAnswer.isEmpty()) {
-        print ("Answer cannot be correct or incorrect.")
-    } else {
-        if (this.subtask.correctAnswer == this.studentAnswer){
-            print("Your answer/s ")
-            for (x in this.studentAnswer)      print(" " + this.subtask.possibleAnswers[x])
-            print(" is/are correct.")
-            this.isCorrect = true
-        }else{
-            print("Your answer/s ")
-            for (x in this.studentAnswer)      print(" " + this.subtask.possibleAnswers[x])
-            print(" is/are wrong.")
-            print("This are the correct answers: ")
-            for (x in this.subtask.correctAnswer) print (" " + this.subtask.possibleAnswers[x] )
-            this.isCorrect = false
-            this.manualApproveAnswer()
-        }
-    }
-
-     */
 }
 
 
@@ -278,6 +276,10 @@ open class Teilaufgabe_MC(
          * */
         var selectedAnswers by remember { mutableStateOf(emptySet<String>()) }
         var isPressed by remember { mutableStateOf(false) }
+        if (isReset){
+            selectedAnswers = emptySet<String>()
+            isPressed = false
+        }
 
         LazyColumn {
             items(possibleAnswers) { answer ->
