@@ -55,9 +55,8 @@ fun QuizScreen(firebaseHelper: FirebaseHelper, schuelerId: String) {
         firebaseHelper.loadStudentTags(schuelerId, onSuccess = { tags ->
             Log.d("QuizScreen", "Schüler-Tags geladen: $tags")
             schuelerTags.value = tags
-            // Aufruf von loadAllTasks statt loadTasksByTags
+            // Aufruf von loadAllTasks
             firebaseHelper.loadAllTasks(onSuccess = { tasks ->
-                // Anwendung des Tagfilters direkt hier, nachdem alle Aufgaben geladen wurden
                 val gefilterteAufgaben = getAufgabenByTags(tags, tasks)
                 aufgabenListe.value = gefilterteAufgaben
                 Log.d("QuizScreen", "Aufgaben geladen und gefiltert: ${gefilterteAufgaben.map { it.name }}")
@@ -152,17 +151,17 @@ fun TeilaufgabeMCUI(
     // Wenn der Button gedrückt wurde, führe die Antwortprüfung durch
     if (isPressed.value) {
         val antwortMC = Antwort_MC(
-            student = Schueler(), // Hier solltest du das tatsächliche Schülerobjekt basierend auf der ID setzen
+            student = Schueler(), // Schueler ?? SchuelerID??
             subtask = teilaufgabe,
             isCorrect = false, // Der Anfangswert, wird innerhalb von approveAnswer aktualisiert
-            isPrivate = false, // Setze entsprechend deinen Anforderungen
+            isPrivate = false,
             studentAnswer = initialSelectedAnswers.value // Die ausgewählten Antworten
         )
 
         // Diese Funktion wird aufgerufen, wenn die Teilaufgabe abgeschlossen ist
         val onFinishSubtask: (Boolean) -> Unit = { finished ->
             if (finished) {
-                isPressed.value = false // Setze isPressed zurück auf false, um den Dialog zu schließen
+                isPressed.value = false
             }
         }
 

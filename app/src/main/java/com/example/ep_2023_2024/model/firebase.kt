@@ -146,7 +146,6 @@ class FirebaseHelper(private val context: Context) {
                 val aufgabenListe = mutableListOf<Aufgabe>()
                 snapshot.children.forEach { taskSnapshot ->
                     val aufgabe = taskSnapshot.getValue(Aufgabe::class.java)?.apply {
-                        // Hier wird versucht, die Kinder des "teilaufgabenListe"-Knotens als Liste zu holen
                         val teilaufgabenListe = taskSnapshot.child("teilaufgabenListe").children.mapNotNull {
                             it.getValue(Teilaufgabe_MC::class.java)
                         }
