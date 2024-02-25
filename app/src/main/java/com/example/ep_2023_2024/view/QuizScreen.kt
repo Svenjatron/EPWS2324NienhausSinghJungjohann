@@ -2,7 +2,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
@@ -12,102 +12,108 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.ep_2023_2024.model.*
 import android.util.Log
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import android.content.Context
-
-
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import com.example.ep_2023_2024.model.Antwort
 import android.widget.Toast
 import androidx.compose.runtime.*
-import androidx.compose.ui.platform.LocalContext
-import com.example.ep_2023_2024.model.Schulklasse
 import com.example.ep_2023_2024.model.Schueler
-import com.example.ep_2023_2024.model.Teilaufgabe
 import com.example.ep_2023_2024.model.Teilaufgabe_MC
 import com.example.ep_2023_2024.model.Aufgabe
 import com.example.ep_2023_2024.model.Antwort_MC
-
+import com.example.ep_2023_2024.view.HomeButton
 @Composable
 fun QuizScreen(firebaseHelper: FirebaseHelper, schuelerId: String) {
     val context = LocalContext.current
     val schuelerTags = remember { mutableStateOf<List<String>>(listOf()) }
     val aufgabenListe = remember { mutableStateOf<List<Aufgabe>>(listOf()) }
     val fehlerNachricht = remember { mutableStateOf<String?>(null) }
-    var displayTaskIndex by remember { mutableStateOf(0) }
+    var displayTaskIndex = remember { mutableStateOf(0) }
     var selectedAnswers = remember { mutableStateOf<Set<String>>(emptySet()) }
     val isButtonPressed = remember { mutableStateOf(false) }
     val isTaskFinished = remember { mutableStateOf(false) }
 
-
     LaunchedEffect(schuelerId) {
-        Log.d("QuizScreen", "Lade Schüler-Tags für Schüler-ID: $schuelerId")
         firebaseHelper.loadStudentTags(schuelerId, onSuccess = { tags ->
-            Log.d("QuizScreen", "Schüler-Tags geladen: $tags")
             schuelerTags.value = tags
-            // Aufruf von loadAllTasks
             firebaseHelper.loadAllTasks(onSuccess = { tasks ->
-                val gefilterteAufgaben = getAufgabenByTags(tags, tasks)
-                aufgabenListe.value = gefilterteAufgaben
-                Log.d("QuizScreen", "Aufgaben geladen und gefiltert: ${gefilterteAufgaben.map { it.name }}")
+                aufgabenListe.value = getAufgabenByTags(tags, tasks)
+                // Setze den Index zurück und lade die Aufgaben neu
+                displayTaskIndex.value = 0
+                isTaskFinished.value = false  // <-- Hinzugefügt: Setzt isTaskFinished zurück
             }, onError = { exception ->
-                Log.e("QuizScreen", "Fehler beim Laden aller Aufgaben", exception)
                 fehlerNachricht.value = "Fehler beim Laden aller Aufgaben: ${exception.message}"
             })
         }, onError = { exception ->
-            Log.e("QuizScreen", "Fehler beim Laden der Schüler-Tags", exception)
             fehlerNachricht.value = "Fehler beim Laden der Schüler-Tags: ${exception.message}"
         })
     }
 
-    AufgabenListeUI(aufgabenListe = aufgabenListe.value, context = context, schueler = Schueler(
-        email = "",
-        passwort = "",
-        name = "",
-        vorname = "",
-        schulklasse = null,
-        isEmailVerified = false,
-        persönlichesInteresse = "",
-        interessenListe = listOf()
-    ), displayTaskIndex = displayTaskIndex, selectedAnswers = selectedAnswers, isButtonPressed = isButtonPressed, isTaskFinished = isTaskFinished)
+    AufgabenListeUI(
+        aufgabenListe = aufgabenListe.value,
+        context = context,
+        schueler = Schueler(), // Ersetzen Sie Schueler() durch eine geeignete Instanz
+        displayTaskIndex = displayTaskIndex,
+        selectedAnswers = selectedAnswers,
+        isButtonPressed = isButtonPressed,
+        isTaskFinished = isTaskFinished,
+        onNextQuestion = {
+            // Hier loggen Sie den Status, um zu sehen, was passiert
+            Log.d("QuizScreen", "onNextQuestion - displayTaskIndex: ${displayTaskIndex.value}, aufgabenListe.size: ${aufgabenListe.value.size}")
+            if (displayTaskIndex.value < aufgabenListe.value.size - 1) {
+                displayTaskIndex.value += 1
+                selectedAnswers.value = emptySet()
+                isButtonPressed.value = false
+            } else {
+                firebaseHelper.loadAllTasks(onSuccess = { tasks ->
+                    aufgabenListe.value = getAufgabenByTags(schuelerTags.value, tasks)
+                    displayTaskIndex.value = 0
+                    isTaskFinished.value = false  // <-- Hinzugefügt: Setzt isTaskFinished zurück
+                }, onError = { exception ->
+                    fehlerNachricht.value = "Fehler beim Laden aller Aufgaben: ${exception.message}"
+                })
+            }
+        }
+    )
 }
+
 @Composable
 fun AufgabenListeUI(
     aufgabenListe: List<Aufgabe>,
     context: Context,
     schueler: Schueler,
-    displayTaskIndex: Int,
+    displayTaskIndex: MutableState<Int>,
     selectedAnswers: MutableState<Set<String>>,
     isButtonPressed: MutableState<Boolean>,
-    isTaskFinished: MutableState<Boolean>
+    isTaskFinished: MutableState<Boolean>,
+    onNextQuestion: () -> Unit,
 ) {
     Column(modifier = Modifier.padding(16.dp)) {
-        if (displayTaskIndex < aufgabenListe.size) {
-            val aufgabe = aufgabenListe[displayTaskIndex]
+        if (displayTaskIndex.value < aufgabenListe.size) {
+            val aufgabe = aufgabenListe[displayTaskIndex.value]
             Text(text = aufgabe.name, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.padding(bottom = 8.dp))
-            // Überprüfen, ob es Teilaufgaben gibt und ob die displayTaskIndex innerhalb des Bereichs liegt
-            if (aufgabe.teilaufgabenListe.isNotEmpty() && displayTaskIndex < aufgabe.teilaufgabenListe.size) {
-                val currentSubtask = aufgabe.teilaufgabenListe[displayTaskIndex]
-                if (currentSubtask is Teilaufgabe_MC) {
+
+            aufgabe.teilaufgabenListe.firstOrNull()?.let { teilaufgabe ->
+                if (teilaufgabe is Teilaufgabe_MC) {
                     TeilaufgabeMCUI(
-                        teilaufgabe = currentSubtask,
+                        teilaufgabe = teilaufgabe,
                         context = context,
-                        initialSelectedAnswers = selectedAnswers, // Übergebe MutableState direkt
-                        onAnswerSelected = { answers -> selectedAnswers.value = answers },
-                        isPressed = isButtonPressed // Übergebe MutableState direkt
+                        initialSelectedAnswers = selectedAnswers,
+                        onNextQuestion = {
+                            // Aktionen bei onNextQuestion
+                            selectedAnswers.value = emptySet()
+                            isButtonPressed.value = false
+                            displayTaskIndex.value += 1
+                            onNextQuestion()
+                        },
                     )
                 }
+            } ?: run {
+                Text("Keine Teilaufgaben verfügbar.", style = MaterialTheme.typography.bodyLarge)
             }
+        } else {
+            isTaskFinished.value = true
+            Text("Keine Aufgaben verfügbar.", style = MaterialTheme.typography.bodyLarge)
         }
     }
 }
@@ -117,55 +123,66 @@ fun TeilaufgabeMCUI(
     teilaufgabe: Teilaufgabe_MC,
     context: Context,
     initialSelectedAnswers: MutableState<Set<String>>,
-    onAnswerSelected: (Set<String>) -> Unit,
-    isPressed: MutableState<Boolean>
+    onNextQuestion: () -> Unit,
 ) {
+    val showDialog = remember { mutableStateOf(false) }
+    val answerCheckResult = remember { mutableStateOf<Boolean?>(null) }
+
+    // Erstelle eine Instanz von Antwort_MC
+    val antwortMC = Antwort_MC(
+        student = Schueler(),
+        subtask = teilaufgabe,
+        isCorrect = false,
+        isPrivate = false,
+        studentAnswer = initialSelectedAnswers.value
+    )
+
     // Zeige den Titel und die Frage der Teilaufgabe an
     Text(text = teilaufgabe.title, style = MaterialTheme.typography.headlineSmall)
     Text(text = teilaufgabe.question, style = MaterialTheme.typography.bodyMedium)
-
-    // Liste der möglichen Antworten
-    LazyColumn {
-        items(teilaufgabe.possibleAnswers) { answer ->
-            Button(onClick = {
-                Toast.makeText(context, "Antwort ausgewählt: $answer", Toast.LENGTH_SHORT).show()
-                val newSelectedAnswers = initialSelectedAnswers.value.toMutableSet()
-                if (newSelectedAnswers.contains(answer)) {
-                    newSelectedAnswers.remove(answer)
-                } else {
-                    newSelectedAnswers.add(answer)
+    Column {
+        // Liste der möglichen Antworten
+        LazyColumn {
+            items(teilaufgabe.possibleAnswers) { answer ->
+                Button(onClick = {
+                    val newSelectedAnswers = initialSelectedAnswers.value.toMutableSet()
+                    if (newSelectedAnswers.contains(answer)) {
+                        newSelectedAnswers.remove(answer)
+                    } else {
+                        newSelectedAnswers.add(answer)
+                    }
+                    initialSelectedAnswers.value = newSelectedAnswers
+                }) {
+                    Text(text = answer)
                 }
-                initialSelectedAnswers.value = newSelectedAnswers
-                onAnswerSelected(initialSelectedAnswers.value)
-            }) {
-                Text(text = answer)
             }
         }
+
+        // Button zum Überprüfen der Antworten
+        Button(onClick = {
+            answerCheckResult.value = antwortMC.evaluateAnswers(initialSelectedAnswers.value, teilaufgabe)
+            showDialog.value = true
+        }) {
+            Text("Antwort überprüfen")
+        }
+
     }
 
-    // Button zum Überprüfen der Antworten
-    Button(onClick = { isPressed.value = true }) {
-        Text("Antworten überprüfen")
-    }
-
-    // Wenn der Button gedrückt wurde, führe die Antwortprüfung durch
-    if (isPressed.value) {
-        val antwortMC = Antwort_MC(
-            student = Schueler(), // Schueler ?? SchuelerID??
-            subtask = teilaufgabe,
-            isCorrect = false, // Der Anfangswert, wird innerhalb von approveAnswer aktualisiert
-            isPrivate = false,
-            studentAnswer = initialSelectedAnswers.value // Die ausgewählten Antworten
+    // Zeige ein Dialogfenster mit dem Ergebnis der Überprüfung
+    if (showDialog.value) {
+        AlertDialog(
+            onDismissRequest = { showDialog.value = false },
+            title = { Text("Antwort Überprüfung") },
+            text = { Text(if (answerCheckResult.value == true) "Richtig!" else "Leider falsch.") },
+            confirmButton = {
+                Button(onClick = {
+                    showDialog.value = false
+                    initialSelectedAnswers.value = emptySet()
+                    onNextQuestion()
+                }) { Text("OK") }
+            }
         )
-
-        // Diese Funktion wird aufgerufen, wenn die Teilaufgabe abgeschlossen ist
-        val onFinishSubtask: (Boolean) -> Unit = { finished ->
-            if (finished) {
-                isPressed.value = false
-            }
-        }
-
-        // Zeige den Dialog basierend auf dem Ergebnis der Antwortüberprüfung
-        antwortMC.approveAnswer(initialSelectedAnswers.value, isPressed.value, onFinishSubtask, isReset = false)
     }
 }
+
+

@@ -111,34 +111,7 @@ class FirebaseHelper(private val context: Context) {
         })
     }
 
-    fun loadTasksByTags(tags: List<String>, onSuccess: (List<Aufgabe>) -> Unit, onError: (Exception) -> Unit) {
-        val ref = FirebaseDatabase.getInstance().getReference("Aufgaben")
-        ref.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val aufgabenListe = mutableListOf<Aufgabe>()
-                snapshot.children.forEach { taskSnapshot ->
-                    val aufgabe = taskSnapshot.getValue(Aufgabe::class.java)
-                    aufgabe?.let {
-                        // Überprüfen Sie, ob die Aufgabe einen der Tags des Schülers hat.
-                        if (tags.contains(it.tag)) {
-                            aufgabenListe.add(it)
-                        }
-                    }
-                }
-                if (aufgabenListe.isNotEmpty()) {
-                    Toast.makeText(context, "Aufgaben erfolgreich geladen.", Toast.LENGTH_LONG).show()
-                    onSuccess(aufgabenListe)
-                } else {
-                    Toast.makeText(context, "Keine Aufgaben für die angegebenen Tags gefunden.", Toast.LENGTH_LONG).show()
-                }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context, "Fehler beim Laden der Aufgaben: ${error.message}", Toast.LENGTH_LONG).show()
-                onError(error.toException())
-            }
-        })
-    }
     fun loadAllTasks(onSuccess: (List<Aufgabe>) -> Unit, onError: (Exception) -> Unit) {
         val ref = FirebaseDatabase.getInstance().getReference("aufgaben")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {

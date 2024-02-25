@@ -46,11 +46,9 @@ class MainActivity : ComponentActivity() {
                             InteressenFrageScreen(firebaseHelper = firebaseHelper, schuelerId = schuelerId, navController = navController)
                         }
                         composable("QuizScreen/{schuelerId}") { backStackEntry ->
-
                             val schuelerId = backStackEntry.arguments?.getString("schuelerId") ?: return@composable
                             QuizScreen(firebaseHelper, schuelerId)
                         }
-
                     }
                 }
             }

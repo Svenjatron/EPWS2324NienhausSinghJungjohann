@@ -25,6 +25,8 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import kotlinx.coroutines.delay
+import android.util.Log
+
 
 
 // Benutzer:innen Klassen //
@@ -101,107 +103,36 @@ abstract class Antwort(
     open val studentAnswer: Set<Any>
 ){
     open fun manualApproveAnswer(){}
-    @Composable
+
     open fun approveAnswer(answerList: Set<String>, isPressed: Boolean, onFinishSubtask: (Boolean) -> Unit, isReset: Boolean) {}
     open fun evaluateAnswers(answerList: Set<String>, subtask: Teilaufgabe_MC): Boolean{return true}
 }
-
 class Antwort_MC(
     student: Schueler,
     override val subtask: Teilaufgabe_MC,
     isCorrect: Boolean,
     isPrivate: Boolean,
     override val studentAnswer: Set<String>
-): Antwort(student, subtask, isCorrect, isPrivate, studentAnswer) {
+) : Antwort(student, subtask, isCorrect, isPrivate, studentAnswer) {
 
-    override fun manualApproveAnswer() {
-        val s = Scanner(System.`in`)
-        println("When you think the evaluation is wrong, please enter 1, else 0.")
-        while (true) {
-            val answer: Int = s.nextInt()
-            if (answer == 1) {
-                println("Deine Antwort wird nun als richtig dargestellt.")
-                this.isCorrect = true
-                break
-            } else if (answer == 0) {
-                println("Die Evaluation wird nicht geändert.")
-                break
-            } else break
-        }
-    }
-
-    @SuppressLint("UnrememberedMutableState")
-    @OptIn(ExperimentalMaterial3Api::class)
-    @Composable
-    override fun approveAnswer(answerList: Set<String>, isPressed: Boolean, onFinishSubtask: (Boolean) -> Unit, isReset: Boolean) {
-        /** Check given answer from student and print if correct or not, as well as the correct answer.
-         * */
-        var show by remember { mutableStateOf(isPressed) }
-
-        //Wenn Antwort KORREKT
-         if (evaluateAnswers(answerList, subtask)){
-            if (show) {
-                AlertDialog(
-                    onDismissRequest = { show = false
-                        onFinishSubtask(true)},
-                    title = { Text("Korrekt") },
-                    text = { Text("Deine Antworten sind korrekt! Möchtest du deine Antworten mauell überprüfen?") },
-                    confirmButton = {
-                        Button(onClick = { show = false })
-                        { Text("OK") }
-                    }
-                )
-            }
-        } else {
-            // wenn KEINE korrekte Antwort MÖGL (auch dann ist isCorrect erstmal false, landet also hier!)
-            if (subtask.correctAnswer.isEmpty()){
-                if (show) {
-                    AlertDialog(
-                        onDismissRequest = { show = false
-                            onFinishSubtask(true)},
-                        title = { Text("Super!") },
-                        text = { Text("Es gibt kein richtig oder Falsch.") },
-                        confirmButton = {
-                            Button(onClick = { show = false
-                                onFinishSubtask(true)})  // BEARB
-                            { Text("Okay") }
-                        }
-                    )
-                }
-            }else { //wenn FALSCH
-                if (show) {
-                    AlertDialog(
-                        onDismissRequest = { show = false
-                            onFinishSubtask(true)},
-                        title = { Text("Leider nicht ganz richtig") },
-                        text = { Text("Deine Antworten beinhalten leider Fehler.\n")},
-                        confirmButton = {
-                            Button(onClick = { show = false
-                                onFinishSubtask(true)})  // BEARB
-                            { Text("Speichern & schließen") }
-                        },
-                    )
-                }
-            }
-        }
+    override fun  approveAnswer(
+        answerList: Set<String>,
+        isPressed: Boolean,
+        onFinishSubtask: (Boolean) -> Unit,
+        isReset: Boolean
+    ) {
+        // Logik zur Überprüfung der Antwort
+        val isCorrect = evaluateAnswers(answerList, subtask)
+        onFinishSubtask(isCorrect)
     }
 
     override fun evaluateAnswers(answerList: Set<String>, subtask: Teilaufgabe_MC): Boolean {
-        var correctList = mutableListOf<String>()
-        var falseList = mutableListOf<String>()
-        for (answer in answerList ){
-            if (subtask.correctAnswer.contains(answer)) {
-                correctList.add(answer)
-            }
-            else    falseList.add(answer)
-        }
-        var isCorrect = false
-        if (falseList.isNotEmpty())     isCorrect = false
-        else if (correctList.size == subtask.correctAnswer.size)    isCorrect = true
-        return isCorrect
+        // Implementierung bleibt gleich, aber entfernen Sie @Composable und Logging
+        val correctAnswersSet = subtask.correctAnswer.map { it.trim() }.toSet()
+        val userAnswersSet = answerList.map { it.trim() }.toSet()
+        return userAnswersSet == correctAnswersSet
     }
 }
-
 
 open class Teilaufgabe(
     var title: String = "",
@@ -276,22 +207,6 @@ open class Teilaufgabe_MC(
             Text(text = "Antwort überprüfen")
         }
     }
-
-
-    /*
-        val s = Scanner(System.`in`)
-        val answer_list = mutableListOf<Int>()
-        println("You can give multiple answers. If you're finished, enter 0. For more context, enter 9.")
-        println ("Please enter the number for your answer and hit enter. Then you can add more if you want.")
-        while (true){
-            val answer: Int = s.nextInt()
-            if (answer != 0 && answer != 9 ){
-                answer_list.add(answer)
-            }else if (answer == 9)  print(this.context)
-            else break
-        }
-        return answer_list
- */
 
 
 }
