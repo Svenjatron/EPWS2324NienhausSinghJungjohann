@@ -84,7 +84,7 @@ ___
 ### Iteration
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|||Sven|Domänenmodell|
+|16.9 - 2h|17.9 - 2h|Sven, Prerit|Domänenmodell|
 |18.9 - 1h| 18.9 - 1h|Caro| Marktanalyse|
 ---
 ## Woche vom 10. - 26 November
@@ -120,12 +120,12 @@ ___
 ### Erste, technische Idee besprechen
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|03.12 - 1h| 03.12 - 1h |Sven, Caro | Technische Idee diskutieren und Aufgaben verteilen|
+|03.12 - 1h| 03.12 - 1h |Sven, Caro| Technische Idee diskutieren und Aufgaben verteilen|
 
 ### Projektrisiken
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|||Sven| Projektrisiken formulieren u. begründen|
+|02.12 - 1h|03.12 -2h|Sven, Prerit| Projektrisiken formulieren u. begründen|
 
 ---
 ## Woche vom 04. - 10. Dezember
@@ -143,7 +143,7 @@ ___
 ### Proof Of Concepts
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|||Sven| PoC |
+|06.12 - 2h|06.12 - 2h|Sven| PoC |
 
 ___
 ## Woche vom 11. - 17. Dezember
@@ -152,18 +152,18 @@ ___
 ### Überarbeiten der Artefakte aufgrund der Kritik vom Audit
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-||||Domänenmodell überarbeiten (Betreuer von inkludierten Kindern)|
+|13.12 - 3h|14.12 - 3h|Caro, Prerit, Sven|Domänenmodell überarbeiten (Betreuer von inkludierten Kindern)|
 ___
 
 ## Woche vom 18. - 24. Dezember
 ### PoC
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|||Sven|PoC überarbeiten|
+|18.12 - 2h|19.12 - 2h|Sven|PoC überarbeiten|
 ### Wireframes
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|||Preit|Wireframes|
+|18.12 - 2h|18.12 - 2h|Preit|Wireframes|
 ### Klassendiagramm
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
