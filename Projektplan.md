@@ -224,14 +224,59 @@ ___
 ---
 ## Woche vom 29. Januar bis 04. Februar
 
+### PoC 1 - Aufgabenzuordnung durch Tags
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|03. 02 - 2h|03.02 2h |Sven, Prerit|Coding|
+
 ---
 ## Woche vom 05. bis 11. Februar
+
+### PoC 1 - Aufgabenzuordnung durch Tags
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|06.02 - 2h|08.02 - 2h|Sven, Prerit|Coding|
+
+### PoC 2 - Aufgabenbearbeitung
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|06.02 - 3h|08.01 - 4h|Caro|Coding|
 
 ---
 ## Woche vom 12. bis 18. Februar
 
+### Benutzeroberfläche
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|13.02 - 2h|14.02 - 4h|Sven, Prerit|Coding|
+
+### Backend
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|13.02 - 2h|14.02 - 4h|Caro|Coding|
+
+### Poster
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|16.02 - 2h|17.02 - 2h|Prerit, Caro, Sven|Poster|
+
 ---
 ## Woche vom 19. bis 25. Februar
+
+### Poster
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|20.02 - 2h|21.02 - 2h|Prerit, Caro, Sven|Poster|
+
+### Fazit und kritisch reflektiertes Prozessassessment
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|19.02 - 2h|24.02 - 4h|Prerit, Caro, Sven||
+
+### verknüpfung backend-frontend
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|24.02 - 3h|24.02/25.02 - 5h|Prerit, Caro, Sven||
 
 ---
 ### Artefakte für das 2. Audit
