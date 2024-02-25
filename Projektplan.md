@@ -163,7 +163,7 @@ ___
 ### Wireframes
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|18.12 - 2h|18.12 - 2h|Preit|Wireframes|
+|18.12 - 2h|18.12 - 2h|Prerit|Wireframes|
 ### Klassendiagramm
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
