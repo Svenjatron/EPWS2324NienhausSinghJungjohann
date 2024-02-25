@@ -278,6 +278,11 @@ ___
 |---|---|---|---|
 |24.02 - 3h|24.02/25.02 - 5h|Prerit, Caro, Sven||
 
+### Foliensätze Vorbereiten
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|22.02 - 3h|22.02/23.02 - 6h|Prerit, Caro, Sven||
+
 ---
 ### Artefakte für das 2. Audit
 - Use Case- Diagram
