@@ -52,13 +52,12 @@ fun QuizScreen(firebaseHelper: FirebaseHelper, schuelerId: String) {
     AufgabenListeUI(
         aufgabenListe = aufgabenListe.value,
         context = context,
-        schueler = Schueler(), // Ersetzen Sie Schueler() durch eine geeignete Instanz
+        schueler = Schueler(),
         displayTaskIndex = displayTaskIndex,
         selectedAnswers = selectedAnswers,
         isButtonPressed = isButtonPressed,
         isTaskFinished = isTaskFinished,
         onNextQuestion = {
-            // Hier loggen Sie den Status, um zu sehen, was passiert
             Log.d("QuizScreen", "onNextQuestion - displayTaskIndex: ${displayTaskIndex.value}, aufgabenListe.size: ${aufgabenListe.value.size}")
             if (displayTaskIndex.value < aufgabenListe.value.size - 1) {
                 displayTaskIndex.value += 1
