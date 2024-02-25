@@ -8,7 +8,7 @@
 |||jeder (auch Prerit schon vorher)|Recherche Quellen|
 |||jeder|Stichpunkte Exposè|
 |So 15.10 - 1h|So 15.10 - 1h|Caro|Ausformulierung Exposè|
-|||Sven|Domänenmodell|
+|So 15.10 - 2h|So. 15.10 - 2h|Sven, Prerit|Domänenmodell|
 ---
 ## Woche vom 16. - 22. Oktober
 ### Domänenmodell
@@ -70,7 +70,7 @@ ___
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |8.11. - 1h |8.11 - 1h|Prerit, Caro, Sven| Anforderungen durchgehen und erste Idee konzipieren|
-|8.11. | | Prerit | Exposè + Domänenmodell |
+|8.11. - 2h |8.11. - 3h| Prerit | Exposè + Domänenmodell |
 |||Sven|Stakeholder + Anforderungen|
 |8.11 - 1h| 8.11, 9.11 - 2h|Caro |Marktanalyse|
 
@@ -93,7 +93,7 @@ ___
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |24.11. - 2h|24.11 - 2h (extended)|Caro| Erfordernisse: Schüler, Sportinteressierte S. Übergewichtige S.|
-|||Prerit| Freundeskreis |
+|24.11. - 1h|24.11. - 2h|Prerit| Freundeskreis |
 |26.11 - 2h|26.11 - 2h (unfinished)|Caro| Anforderungen für obige Stakeholder|
 ---
 ## Woche vom 27. - 03. December
@@ -163,7 +163,7 @@ ___
 ### Wireframes
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|||Perit|Wireframes|
+|||Preit|Wireframes|
 ### Klassendiagramm
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
@@ -196,23 +196,42 @@ ___
 ### Domänenmodell Überarbeiten
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|16.01 - <1h| |Perit|Domänenmodell Üebrarbeiten|
+|16.01 - <1h|16.01 - 1h|Prerit|Domänenmodell Üebrarbeiten|
 
 ### Foliensätze Vorbereiten
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|16.01. - < 1h| |Perit|Foliensätze Vorbereiten|
+|16.01. - 1h| |Prerit|Foliensätze Vorbereiten|
 
 ### PoC 1 - Aufgabenzuordnung durch Tags
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
-|17. 01 - 2h| |Sven|Coding|
+|17. 01 - 2h|17.01 01 - 2h |Sven|Coding|
 
 ### PoC 2 - Aufgabenbearbeitung
 |Geplant|Durchgeführt|Teilnehmer|Aufgabe|
 |---|---|---|---|
 |17. 01 - 3h| 17.01 - 4h |Caro|Coding|
 
+---
+## Woche vom 22. bis 28. Januar
+
+### PoC 2 - Aufgabenbearbeitung
+|Geplant|Durchgeführt|Teilnehmer|Aufgabe|
+|---|---|---|---|
+|17. 01 - 3h| 17.01 - 4h |Caro|Coding|
+
+---
+## Woche vom 29. Januar bis 04. Februar
+
+---
+## Woche vom 05. bis 11. Februar
+
+---
+## Woche vom 12. bis 18. Februar
+
+---
+## Woche vom 19. bis 25. Februar
 
 ---
 ### Artefakte für das 2. Audit
